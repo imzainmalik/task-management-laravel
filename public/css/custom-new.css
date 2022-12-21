@@ -44,8 +44,7 @@ h5 {
 
 .top-left-part {
     background: #041731;
-    padding-top: 10px;
-    padding-left: 15px
+    padding-left: 20px
 }
 
 .logo img {
@@ -1179,14 +1178,14 @@ a.mytooltip {
 .notification-dropdown {
     padding: 1px 11px;
     border-radius: 4px;
-    background: #09203a;
+    background: #fff;
 }
 
 .shortcut-dropdown .dropdown-toggle,
 .notification-dropdown .dropdown-toggle {
     padding-top: 2px;
     font-size: 14px;
-    color: #6ebdff;
+    color: #8ac441;
 }
 
 .shortcut-dropdown.open,
@@ -1222,7 +1221,7 @@ a.mytooltip {
 }
 
 .menu-copy-right a {
-    color: #c5c5c5;
+    color: #fff;
     font-weight: 400;
 }
 

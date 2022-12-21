@@ -1,7 +1,7 @@
 @extends('layouts.super-admin')
 
 @section('page-title')
-    <div class="row bg-title">
+     <div class="row bg-title">
         <!-- .page title -->
         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12 bg-title-left">
             <h4 class="page-title"><i class="{{ $pageIcon }}"></i> {{ __($pageTitle) }}</h4>
@@ -31,13 +31,13 @@
         <div class="col-xs-12">
 
             <div class="panel panel-inverse">
-                <div class="panel-heading"> @lang('app.add') @lang('app.company')</div>
+                <div class="panel-heading"> @lang('app.add') Team Leader</div>
                 <div class="panel-wrapper collapse in" aria-expanded="true">
 
                     <div class="panel-body">
                         {!! Form::open(['id'=>'createCompany','class'=>'ajax-form','method'=>'POST', 'enctype' => 'multipart/form-data']) !!}
                         <div class="form-body">
-                            <h3 class="box-title">@lang('app.company') @lang('app.details')</h3>
+                            <h3 class="box-title">Team Leader @lang('app.details')</h3>
                             <hr>
                             <div class="row">
                                 @if(module_enabled('Subdomain'))
@@ -54,14 +54,14 @@
                                 @endif
                                     <div class="col-md-{{$colClass}}">
                                     <div class="form-group">
-                                        <label for="company_name" class="required">@lang('modules.accountSettings.companyName')</label>
+                                        <label for="company_name" class="required">Leader Name</label>
                                         <input type="text" class="form-control" id="company_name" name="company_name"
                                                value="">
                                     </div>
                                 </div>
                                     <div class="col-md-{{$colClass}}">
                                     <div class="form-group">
-                                        <label for="company_email" class="required">@lang('modules.accountSettings.companyEmail')</label>
+                                        <label for="company_email" class="required">Leader Email</label>
                                         <input type="email" class="form-control" id="company_email" name="company_email"
                                                value="">
                                     </div>
@@ -71,24 +71,24 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="company_phone" class="required">@lang('modules.accountSettings.companyPhone')</label>
+                                        <label for="company_phone" class="required">Leader Phone</label>
                                         <input type="tel" class="form-control" id="company_phone" name="company_phone"
                                                value="">
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                {{-- <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">@lang('modules.accountSettings.companyWebsite')</label>
                                         <input type="text" class="form-control" id="website" name="website"
                                                value="">
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
 
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="exampleInputPassword1">@lang('modules.accountSettings.companyLogo')</label>
+                                        <label for="exampleInputPassword1">Upload Profile Image</label>
 
                                         <div class="col-xs-12">
                                             <div class="fileinput fileinput-new" data-provides="fileinput">
@@ -114,16 +114,17 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="address" class="required">@lang('modules.accountSettings.companyAddress')</label>
+                                        <label for="address" class="required">Leader Address</label>
                                         <textarea class="form-control" id="address" rows="5"
                                                   name="address"></textarea>
                                     </div>
                                 </div>
+                                <input type="hidden" name="currency_id" value="1">
                             </div>
 
 
                             <div class="row">
-                                <div class="col-md-3">
+                                {{-- <div class="col-md-3">
                                     <div class="form-group">
                                         <label for="address">@lang('modules.accountSettings.defaultCurrency')</label>
                                         <select name="currency_id" id="currency_id" class="form-control">
@@ -154,7 +155,7 @@
                                             @endforeach
                                         </select>
                                     </div>
-                                </div>
+                                {{-- </div> --}}
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label>@lang('app.status')</label>
@@ -163,7 +164,7 @@
                                             <option value="inactive">@lang('app.inactive')</option>
                                         </select>
                                     </div>
-                                </div>
+                                 </div>
                             </div>
 
                             <h3 class="box-title">@lang('app.admin') @lang('modules.company.accountSetup')</h3>

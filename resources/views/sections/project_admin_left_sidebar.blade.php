@@ -27,7 +27,7 @@
 </div>
 <!-- .User Profile -->
 <div class="navbar-default sidebar" role="navigation">
-    <div class="sidebar-nav navbar-collapse slimscrollsidebar">
+    <div class="sidebar-nav navbar-collapse slimscrollsidebar" style="background-color: #8ac441;">
 
         <ul class="nav" id="side-menu">
             {{--<li class="sidebar-search hidden-sm hidden-md hidden-lg">--}}

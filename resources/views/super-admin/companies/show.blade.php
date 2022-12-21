@@ -1,10 +1,10 @@
-<div class="rpanel-title"> @lang('app.company') @lang('app.details')
+<div class="rpanel-title"> Team Leader @lang('app.details')
     <span><i class="ti-close right-side-toggle"></i></span> 
 </div>
 <div class="r-panel-body p-t-0 h-scroll">
 
     <div class="row">
-        <div class="col-xs-12 col-md-7 p-t-20 b-r ">
+        <div class="col-xs-12 col-md-12 p-t-20 b-r ">
             <div class="row">
                 <div class="col-xs-6 m-b-20">
                     <img src="{{ $companyDetails->logo_url }}" alt="logo" height="30">
@@ -13,18 +13,18 @@
                     <a href="{{ route('super-admin.companies.edit',$companyDetails->id) }}" class="btn btn-outline btn-success btn-sm">
                         <i class="fa fa-pencil" aria-hidden="true"></i>
                         @lang('app.edit')
-                        @lang('app.company') </a>
+                         Leader </a>
                     
                 </div>
 
                 <div class="col-xs-12">
                     <div class="row">
                         <div class="col-xs-6 b-r"> <span
-                                class="font-semi-bold">@lang('modules.accountSettings.companyName')</span> <br>
+                                class="font-semi-bold">Leader Name</span> <br>
                             <p class="text-muted">{{ ucwords($companyDetails->company_name) }}</p>
                         </div>
                         <div class="col-xs-6"> <span
-                                class="font-semi-bold">@lang('modules.accountSettings.companyEmail')</span> <br>
+                                class="font-semi-bold">Leader Email</span> <br>
                             <p class="text-muted">{{ $companyDetails->company_email }}</p>
                         </div>
                     </div>
@@ -32,25 +32,25 @@
 
                     <div class="row">
                         <div class="col-xs-6 b-r"> <span
-                                class="font-semi-bold">@lang('modules.accountSettings.companyPhone')</span> <br>
+                                class="font-semi-bold">Leader Phone</span> <br>
                             <p class="text-muted">{{ ucwords($companyDetails->company_phone) }}</p>
                         </div>
-                        <div class="col-xs-6"> <span
+                        {{-- <div class="col-xs-6"> <span
                                 class="font-semi-bold">@lang('modules.accountSettings.companyWebsite')</span> <br>
                             <p class="text-muted">{{ $companyDetails->website ?? "--" }}</p>
-                        </div>
+                        </div> --}}
                     </div>
                     <hr>
 
                     <div class="row">
                         <div class="col-xs-12"> <span
-                                class="font-semi-bold">@lang('modules.accountSettings.companyAddress')</span> <br>
+                                class="font-semi-bold">Leader Address</span> <br>
                             <p class="text-muted">{!! $companyDetails->address !!}</p>
                         </div>
                     </div>
                     <hr>
 
-                    <div class="row">
+                    {{-- <div class="row">
                         <div class="col-xs-6 b-r"> <span
                                 class="font-semi-bold">@lang('modules.accountSettings.defaultCurrency')</span> <br>
                             <p class="text-muted">
@@ -61,8 +61,8 @@
                                 class="font-semi-bold">@lang('modules.accountSettings.defaultTimezone')</span> <br>
                             <p class="text-muted">{{ $companyDetails->timezone }}</p>
                         </div>
-                    </div>
-                    <hr>
+                    </div> --}}
+                    {{-- <hr> --}}
 
                     <div class="row">
                         <div class="col-xs-6 b-r"> <span class="font-semi-bold">@lang('app.status')</span> <br>
@@ -121,7 +121,7 @@
 
         </div>
 
-        <div class="col-xs-12 col-md-5 p-t-20 ">
+        {{-- <div class="col-xs-12 col-md-5 p-t-20 ">
 
             <h4>@lang('app.package') @lang('app.details')</h4>
             <table class="table">
@@ -178,7 +178,7 @@
                 id="login-as-company"><i class="fa fa-sign-in"></i> @lang('modules.superadmin.loginAsCompany')</a>
 
 
-        </div>
+        </div> --}}
 
 
 

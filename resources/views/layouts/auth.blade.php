@@ -55,7 +55,8 @@
   <div class="row">
     <div class="col-xs-12 col-lg-5" id="form-section">
         <div id="auth-logo">
-            <img src="{{ $setting->logo_url }}" style="max-height: 50px" alt="Logo"/>
+            <img src="{{ $setting->logo_url }}" style="margin: auto;
+            display: block;" alt="Logo"/>
         </div>
 
         <div id="auth-form">

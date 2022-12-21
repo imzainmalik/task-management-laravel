@@ -96,7 +96,7 @@
             <img src="{{ $global->logo_url }}" alt="home" class=" admin-logo" />
         </a>
     </div>
-    <div class="sidebar-nav navbar-collapse slimscrollsidebar">
+    <div class="sidebar-nav navbar-collapse slimscrollsidebar" style="background-color: #8ac441;">
 
         <!-- .User Profile -->
         <ul class="nav" id="side-menu">
@@ -208,6 +208,7 @@
                             <li><a href="{{ route('admin.teams.index') }}">@lang('app.department')</a></li>
                             <li><a href="{{ route('admin.designations.index') }}">@lang('app.menu.designation')</a></li>
                         @endif
+
                         {{-- @if (in_array('attendance', $modules))
                             <li><a href="{{ route('admin.attendances.summary') }}" class="waves-effect">@lang('app.menu.attendance')</a> </li>
                         @endif
@@ -221,6 +222,7 @@
                     </ul>
                 </li>
             @endif
+            
 
             @if (in_array('projects', $modules) ||
                 in_array('tasks', $modules) ||

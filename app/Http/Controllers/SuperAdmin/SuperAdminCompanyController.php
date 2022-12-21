@@ -27,6 +27,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Auth;
+use Money\Currency as MoneyCurrency;
 
 class SuperAdminCompanyController extends SuperAdminBaseController
 {
@@ -38,10 +39,10 @@ class SuperAdminCompanyController extends SuperAdminBaseController
     public function __construct()
     {
         parent::__construct();
-        $this->pageTitle = 'Companies';
+        $this->pageTitle = 'Team Leader';
         $this->pageIcon = 'icon-layers';
         $this->colClass = '6';
-        if (module_enabled('Subdomain')) {
+         if (module_enabled('Subdomain') ) {
             $this->colClass = '4';
         }
     }
@@ -79,20 +80,19 @@ class SuperAdminCompanyController extends SuperAdminBaseController
      */
     public function store(StoreRequest $request)
     {
+        // dd($request->all());
         DB::beginTransaction();
 
         $company = new Company();
-
         $companyDetail = $this->storeAndUpdate($company, $request);
+        $globalCurrency = GlobalCurrency::findorFail($request->currency_id);
 
-        $globalCurrency = GlobalCurrency::findOrFail($request->currency_id);
         $currency = Currency::where('currency_code', $globalCurrency->currency_code)
             ->where('company_id', $companyDetail->id)->first();
-
         if (is_null($currency)) {
             $this->newCurrency($globalCurrency, $companyDetail);
-        }
-
+        }        
+        
         $company->currency_id = $currency->id;
         $company->save();
 
@@ -116,7 +116,7 @@ class SuperAdminCompanyController extends SuperAdminBaseController
         $user->roles()->attach($employeeRole->id);
 
         DB::commit();
-        return Reply::redirect(route('super-admin.companies.index'), 'Company added successfully.');
+        return Reply::redirect(route('super-admin.companies.index'), 'Leader added successfully.');
     }
 
     private function newCurrency($globalCurrency, $companyDetail)
@@ -391,32 +391,33 @@ class SuperAdminCompanyController extends SuperAdminBaseController
 
     public function storeAndUpdate($company, $request)
     {
-        $company->company_name = $request->input('company_name');
-        $company->company_email = $request->input('company_email');
-        $company->company_phone = $request->input('company_phone');
-        $company->website = $request->input('website');
-        $company->address = $request->input('address');
-        $company->timezone = $request->input('timezone');
-        $company->locale = $request->input('locale');
+        $company->company_name = $request->company_name;
+        $company->company_email = $request->company_email;
+        $company->company_phone = $request->company_phone;
+        // $company->website = $request->input('website');
+        $company->address = $request->address;
+        // $company->timezone = $request->input('timezone');
+        // $company->locale = $request->input('locale');
         $company->status = $request->status;
 
-        if ($request->hasFile('logo')) {
-            $company->logo = Files::upload($request->logo, 'app-logo');
-        }
+        // if ($request->hasFile('logo')) {
+        //     $company->logo = Files::upload($request->logo, 'app-logo');
+        // }
 
-        $company->last_updated_by = $this->user->id;
+        // $company->last_updated_by = $this->user->id;
 
-        if (module_enabled('Subdomain')) {
-            $company->sub_domain = $request->sub_domain;
-        }
+        // if (module_enabled('Subdomain')) {
+        //     $company->sub_domain = $request->sub_domain;
+        // }
 
         $company->save();
+        // dd($company);
 
 
-        try {
-            $this->updateExchangeRatesCompanyWise($company);
-        } catch (\Exception $e) {
-        }
+        // try {
+        //     $this->updateExchangeRatesCompanyWise($company);
+        // } catch (\Exception $e) {
+        // }
 
 
         return $company;

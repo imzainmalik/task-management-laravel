@@ -115,7 +115,7 @@
             <img src="{{ $global->logo_url }}" alt="home" class=" admin-logo" />
         </a>
     </div>
-    <div class="sidebar-nav navbar-collapse slimscrollsidebar">
+    <div class="sidebar-nav navbar-collapse slimscrollsidebar" style="background-color: #8ac441;">
 
         <ul class="nav" id="side-menu">
 

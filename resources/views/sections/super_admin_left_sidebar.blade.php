@@ -3,6 +3,7 @@
         overflow: initial !important;
     }
 </style>
+ 
 <div class="navbar-default sidebar" role="navigation">
     <div class="navbar-header">
         <!-- Toggle icon for mobile view -->
@@ -73,7 +74,7 @@
             <img src="{{ $global->logo_url }}" alt="home" class=" admin-logo"/>
         </a>
     </div>
-    <div class="sidebar-nav navbar-collapse slimscrollsidebar">
+    <div class="sidebar-nav navbar-collapse slimscrollsidebar" style="background-color: #8ac441;">
 
         <!-- .User Profile -->
         <ul class="nav" id="side-menu">
@@ -107,10 +108,11 @@
             </li>
 
             <li><a href="{{ route('super-admin.dashboard') }}" class="waves-effect"><i class="icon-speedometer fa-fw"></i> <span class="hide-menu">@lang('app.menu.dashboard') </span></a> </li>
+            <li><a href="{{ route('super-admin.teams.index') }}"><i class="icon-user fa-fw"></i> @lang('app.department')</a></li>
 
-            <li><a href="{{ route('super-admin.packages.index') }}" class="waves-effect"><i class="icon-calculator fa-fw"></i> <span class="hide-menu">@lang('app.menu.packages') </span></a> </li>
+            {{-- <li><a href="{{ route('super-admin.packages.index') }}" class="waves-effect"><i class="icon-calculator fa-fw"></i> <span class="hide-menu">@lang('app.menu.packages') </span></a> </li> --}}
 
-            <li><a href="{{ route('super-admin.companies.index') }}" class="waves-effect"><i class="icon-layers fa-fw"></i> <span class="hide-menu">@lang('app.menu.companies') </span></a> </li>
+            <li><a href="{{ route('super-admin.companies.index') }}" class="waves-effect"><i class="icon-layers fa-fw"></i> <span class="hide-menu">Team Leader </span></a> </li>
             <li><a href="{{ route('super-admin.invoices.index') }}" class="waves-effect"><i class="icon-printer fa-fw"></i> <span class="hide-menu">@lang('app.menu.invoices') </span></a> </li>
             <li><a href="{{ route('super-admin.faq.index') }}" class="waves-effect"><i class="icon-docs fa-fw"></i> <span class="hide-menu">@lang('app.menu.faq') </span></a> </li>
             <li><a href="{{ route('super-admin.super-admin.index') }}" class="waves-effect"><i class="fa fa-user fa-fw"></i> <span class="hide-menu">@lang('app.superAdmin') </span></a> </li>

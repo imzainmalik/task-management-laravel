@@ -121,6 +121,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::group(
         ['namespace' => 'SuperAdmin', 'prefix' => 'super-admin', 'as' => 'super-admin.', 'middleware' => ['super-admin']],
         function () {
+            Route::resource('teams', 'ManageTeamsController');
 
             Route::get('/dashboard', 'SuperAdminDashboardController@index')->name('dashboard');
             Route::get('/dashboard/stripe-pop-up-close', 'SuperAdminDashboardController@stripePopUpClose')->name('dashboard.stripe-pop-up-close');
@@ -1618,6 +1619,7 @@ Route::group(['middleware' => 'auth'], function () {
 
 
     // Mark all notifications as readu
+    
     Route::post('show-admin-notifications', ['uses' => 'NotificationController@showAdminNotifications'])->name('show-admin-notifications');
     Route::post('show-user-notifications', ['uses' => 'NotificationController@showUserNotifications'])->name('show-user-notifications');
     Route::post('show-client-notifications', ['uses' => 'NotificationController@showClientNotifications'])->name('show-client-notifications');

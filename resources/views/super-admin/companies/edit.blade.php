@@ -167,7 +167,7 @@
                                             <option value="">-</option>
                                             <option value="active" @if($company->status == 'active') selected @endif>@lang('app.active')</option>
                                             <option value="inactive" @if($company->status == 'inactive') selected @endif>@lang('app.inactive')</option>
-                                            <option value="license_expired" @if($company->status == 'license_expired') selected @endif>@lang('modules.dashboard.licenseExpired')</option>
+                                            {{-- <option value="license_expired" @if($company->status == 'license_expired') selected @endif>@lang('modules.dashboard.licenseExpired')</option> --}}
                                         </select>
                                     </div>
                                 </div>

@@ -1443,7 +1443,7 @@ return array(
             'details' => 'Details',
             'verified' => 'Verified',
             'registerDate' => 'Register Date',
-            'totalUsers' => 'Total Users',
+            'totalUsers' => 'Total Teammates',
             'recentRegisteredCompanies' => 'Recent Registered Companies',
             'recentSubscriptions' => 'Recent Subscriptions',
             'recentLicenseExpiredCompanies' => 'Recent Licence Expired Companies',

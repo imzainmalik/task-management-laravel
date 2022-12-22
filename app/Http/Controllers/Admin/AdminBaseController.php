@@ -144,7 +144,7 @@ class AdminBaseController extends Controller
                 ->orderBy('updated_at', 'desc')
                 ->get();
             $this->rtl = $this->global->rtl;
-            $this->worksuitePlugins = worksuite_plugins();
+            $this->LegenTaskPlugins = LegenTask_plugins();
 
             if (config('filesystems.default') == 's3') {
                 $this->url = 'https://' . config('filesystems.disks.s3.bucket') . '.s3.amazonaws.com/';

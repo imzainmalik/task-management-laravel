@@ -12,7 +12,7 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => 'Worksuite',
+    'name' => 'LegenTask',
     'envato_item_id' => 23263417,
     'currency_position' => env('CURRENCY_POSITION',0),
     /*

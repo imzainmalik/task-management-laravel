@@ -70,7 +70,7 @@ class SuperAdminBaseController extends Controller
             $this->offlineRequestCount = 0;
         }
 
-        $this->worksuitePlugins = worksuite_plugins();
+        $this->LegenTaskPlugins = LegenTask_plugins();
         $this->setFileSystemConfigs();
 
         $this->middleware(function ($request, $next) {

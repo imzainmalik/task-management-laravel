@@ -3,7 +3,7 @@
         overflow: initial !important;
     }
 </style>
-<div class="navbar-default sidebar" role="navigation" style="background-color: #98d333; color: white;">
+<div class="navbar-default sidebar" role="navigation">
     <div class="navbar-header">
         <!-- Toggle icon for mobile view -->
         <a class="navbar-toggle hidden-sm hidden-md hidden-lg " href="javascript:void(0)" data-toggle="collapse"
@@ -89,13 +89,12 @@
 
             <li class="dropdown">
                 <a href="{{ route('logout') }}" title="Logout"
-                    onclick="event.preventDefault();
-                                                    document.getElementById('logout-form').submit();"><i
-                        class="fa fa-power-off"></i>
+                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    <i class="fa fa-power-off"></i>
                 </a>
             </li>
 
-            @foreach ($worksuitePlugins as $item)
+            @foreach ($LegenTaskPlugins as $item)
                 @if (in_array(strtolower($item), $modules) || in_array($item, $modules))
                     @if (View::exists(strtolower($item) . '::sections.member_left_sidebar'))
                         @include(strtolower($item) . '::sections.member_left_sidebar')
@@ -139,8 +138,8 @@
                     <li role="separator" class="divider"></li>
                     <li><a href="{{ route('logout') }}"
                             onclick="event.preventDefault();
-                            document.getElementById('logout-form').submit();">
-                            <i class="fa fa-power-off"></i> @lang('app.logout')</a>
+                                                     document.getElementById('logout-form').submit();"><i
+                                class="fa fa-power-off"></i> @lang('app.logout')</a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             {{ csrf_field() }}
                         </form>
@@ -162,7 +161,7 @@
                     </a>
                 </li>
             @endif
-
+{{-- 
             @if (in_array('products', $modules))
                 <li><a href="{{ route('client.products.index') }}" class="waves-effect"><i
                             class="icon-layers fa-fw"></i> <span class="hide-menu">@lang('app.menu.products') </span>
@@ -172,38 +171,30 @@
                         @endif
                     </a>
                 </li>
-            @endif
+            @endif --}}
 
-            @if (in_array('tickets', $modules))
-                <li><a href="{{ route('client.tickets.index') }}" class="waves-effect">
-                        <i class="ti-ticket fa-fw"></i>
-                        <span class="hide-menu">@lang('app.menu.tickets') </span></a>
-                </li>
-            @endif
+            {{-- @if (in_array('tickets', $modules))
+                <li><a href="{{ route('client.tickets.index') }}" class="waves-effect"><i
+                            class="ti-ticket fa-fw"></i> <span class="hide-menu">@lang('app.menu.tickets') </span></a> </li>
+            @endif --}}
 
             @if (in_array('invoices', $modules))
                 <li><a href="{{ route('client.invoices.index') }}" class="waves-effect"><i
                             class="ti-receipt fa-fw"></i> <span class="hide-menu">@lang('app.menu.invoices') </span>
                         @if ($unreadInvoiceCount > 0)
-                            <div class="notify notification-color">
-                                <span class="heartbit"></span>
-                                <span class="point"></span>
-                            </div>
+                            <div class="notify notification-color"><span class="heartbit"></span><span
+                                    class="point"></span></div>
                         @endif
                     </a>
                 </li>
-                <li><a href="{{ route('client.credit-notes.index') }}" class="waves-effect">
-                        <i class="ti-credit-card fa-fw"></i>
-                        <span class="hide-menu">@lang('app.credit-note') </span>
+                <li><a href="{{ route('client.credit-notes.index') }}" class="waves-effect"><i
+                            class="ti-credit-card fa-fw"></i> <span class="hide-menu">@lang('app.credit-note') </span>
                         @if ($unreadCreditNoteCount > 0)
-                            <div class="notify notification-color">
-                                <span class="heartbit"></span>
-                                <span class="point"></span>
-                            </div>
+                            <div class="notify notification-color"><span class="heartbit"></span><span
+                                    class="point"></span></div>
                         @endif
                     </a>
-                    </a>
-                </li>
+                    </a> </li>
             @endif
 
             @if (in_array('estimates', $modules))
@@ -217,7 +208,7 @@
                 </li>
             @endif
 
-            @if (in_array('payments', $modules))
+            {{-- @if (in_array('payments', $modules))
                 <li><a href="{{ route('client.payments.index') }}" class="waves-effect"><i
                             class="fa fa-money fa-fw"></i> <span class="hide-menu">@lang('app.menu.payments') </span>
                         @if ($unreadPaymentCount > 0)
@@ -226,18 +217,18 @@
                         @endif
                     </a>
                 </li>
-            @endif
+            @endif --}}
 
-            @if (in_array('events', $modules))
+            {{-- @if (in_array('events', $modules))
                 <li><a href="{{ route('client.events.index') }}" class="waves-effect"><i
                             class="icon-calender fa-fw"></i> <span class="hide-menu">@lang('app.menu.Events')</span></a>
                 </li>
-            @endif
-
+            @endif --}}
+{{-- 
             @if (in_array('contracts', $modules))
                 <li><a href="{{ route('client.contracts.index') }}" class="waves-effect"><i
                             class="fa fa-file fa-fw"></i> <span class="hide-menu">@lang('app.menu.contracts')</span></a> </li>
-            @endif
+            @endif --}}
 
             @if ($gdpr->enable_gdpr)
                 <li><a href="{{ route('client.gdpr.index') }}" class="waves-effect"><i class="icon-lock fa-fw"></i>
@@ -266,14 +257,20 @@
 
             {{-- <li><a href="#" class="waves-effect" id="rtl"><i class="ti-settings fa-fw"></i> <span class="hide-menu"> RTL</span></a></li> --}}
 
-            @foreach ($worksuitePlugins as $item)
+            @foreach ($LegenTaskPlugins as $item)
                 @if (in_array(strtolower($item), $modules) || in_array($item, $modules))
                     @if (View::exists(strtolower($item) . '::sections.client_left_sidebar'))
                         @include(strtolower($item) . '::sections.client_left_sidebar')
                     @endif
                 @endif
             @endforeach
+
         </ul>
+
+
+
+
+
     </div>
 
     <div class="menu-footer">
@@ -299,20 +296,20 @@
                                 </a>
                             </li>
                         @endif
-                        <li>
-                            <a href="{{ route('client.profile.index') }}"><i class="ti-user"></i>
-                                @lang('app.menu.profileSettings')
-                            </a>
+                        <li><a href="{{ route('client.profile.index') }}"><i class="ti-user"></i>
+                                @lang('app.menu.profileSettings')</a></li>
+
+                        <li><a href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();"><i
+                                class="fa fa-power-off"></i> @lang('app.logout')</a>
+
                         </li>
-                        <li>
-                            <a href="{{ route('logout') }}"
-                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                <i class="fa fa-power-off"></i> @lang('app.logout')
-                            </a>
-                        </li>
+
                     </ul>
                 </div>
             </div>
+
             <div class="col-lg-6 text-center m-b-5">
                 <div class="btn-group dropup notification-dropdown">
                     <a class="dropdown-toggle show-user-notifications" data-toggle="dropdown" href="#">
@@ -331,12 +328,16 @@
                     </ul>
                 </div>
             </div>
+
         </div>
         <div class="menu-copy-right">
             <a href="javascript:void(0)" class="open-close hidden-xs waves-effect waves-light">
-                <i class="ti-angle-double-right ti-angle-double-left"></i>
+                <i class="ti-angle-double-right ti-angle-double-left"></i> 
                 <span class="collapse-sidebar-text">@lang('app.collapseSidebar')</span>
             </a>
         </div>
+
     </div>
+
+
 </div>

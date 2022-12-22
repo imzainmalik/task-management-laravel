@@ -31,33 +31,33 @@ class CreateSeoDetailsTable extends Migration
         $seoDetail = new SeoDetail();
         $seoDetail->page_name = 'home';
         $seoDetail->seo_title = 'Home';
-        $seoDetail->seo_author = $globalSetting ? $globalSetting->company_name : 'Worksuite';
+        $seoDetail->seo_author = $globalSetting ? $globalSetting->company_name : 'LegenTask';
         $seoDetail->seo_keywords = 'best crm,hr management software, web hr software, hr software online, free hr software, hr software for sme, hr management software for small business, cloud hr software, online hr management software';
-        $seoDetail->seo_description = 'Worksuite saas is easy to use CRM software that is designed for B2B. It include  everything you need to run your businesses. like manage customers, projects, invoices, estimates, timelogs, contract and much more.';
+        $seoDetail->seo_description = 'LegenTask saas is easy to use CRM software that is designed for B2B. It include  everything you need to run your businesses. like manage customers, projects, invoices, estimates, timelogs, contract and much more.';
         $seoDetail->save();
 
         $seoDetail = new SeoDetail();
         $seoDetail->page_name = 'feature';
         $seoDetail->seo_title = 'Feature';
-        $seoDetail->seo_author = $globalSetting ? $globalSetting->company_name : 'Worksuite';
+        $seoDetail->seo_author = $globalSetting ? $globalSetting->company_name : 'LegenTask';
         $seoDetail->seo_keywords = 'best crm,hr management software, web hr software, hr software online, free hr software, hr software for sme, hr management software for small business, cloud hr software, online hr management software';
-        $seoDetail->seo_description = 'Worksuite saas is easy to use CRM software that is designed for B2B. It include  everything you need to run your businesses. like manage customers, projects, invoices, estimates, timelogs, contract and much more.';
+        $seoDetail->seo_description = 'LegenTask saas is easy to use CRM software that is designed for B2B. It include  everything you need to run your businesses. like manage customers, projects, invoices, estimates, timelogs, contract and much more.';
         $seoDetail->save();
 
         $seoDetail = new SeoDetail();
         $seoDetail->page_name = 'pricing';
         $seoDetail->seo_title = 'Pricing';
-        $seoDetail->seo_author = $globalSetting ? $globalSetting->company_name : 'Worksuite';
+        $seoDetail->seo_author = $globalSetting ? $globalSetting->company_name : 'LegenTask';
         $seoDetail->seo_keywords = 'best crm,hr management software, web hr software, hr software online, free hr software, hr software for sme, hr management software for small business, cloud hr software, online hr management software';
-        $seoDetail->seo_description = 'Worksuite saas is easy to use CRM software that is designed for B2B. It include  everything you need to run your businesses. like manage customers, projects, invoices, estimates, timelogs, contract and much more.';
+        $seoDetail->seo_description = 'LegenTask saas is easy to use CRM software that is designed for B2B. It include  everything you need to run your businesses. like manage customers, projects, invoices, estimates, timelogs, contract and much more.';
         $seoDetail->save();
 
         $seoDetail = new SeoDetail();
         $seoDetail->page_name = 'contact';
         $seoDetail->seo_title = 'Contact';
-        $seoDetail->seo_author = $globalSetting ? $globalSetting->company_name : 'Worksuite';
+        $seoDetail->seo_author = $globalSetting ? $globalSetting->company_name : 'LegenTask';
         $seoDetail->seo_keywords = 'best crm,hr management software, web hr software, hr software online, free hr software, hr software for sme, hr management software for small business, cloud hr software, online hr management software';
-        $seoDetail->seo_description = 'Worksuite saas is easy to use CRM software that is designed for B2B. It include  everything you need to run your businesses. like manage customers, projects, invoices, estimates, timelogs, contract and much more.';
+        $seoDetail->seo_description = 'LegenTask saas is easy to use CRM software that is designed for B2B. It include  everything you need to run your businesses. like manage customers, projects, invoices, estimates, timelogs, contract and much more.';
         $seoDetail->save();
 
         $footerPages = FooterMenu::all();
@@ -67,8 +67,8 @@ class CreateSeoDetailsTable extends Migration
                 $seoDetail->page_name = $footerPage->slug;
                 $seoDetail->seo_title = $footerPage->name;
                 $seoDetail->seo_keywords = 'best crm,hr management software, web hr software, hr software online, free hr software, hr software for sme, hr management software for small business, cloud hr software, online hr management software';
-                $seoDetail->seo_author = $globalSetting ? $globalSetting->company_name : 'Worksuite';
-                $seoDetail->seo_description = 'Worksuite saas is easy to use CRM software that is designed for B2B. It include  everything you need to run your businesses. like manage customers, projects, invoices, estimates, timelogs, contract and much more.';
+                $seoDetail->seo_author = $globalSetting ? $globalSetting->company_name : 'LegenTask';
+                $seoDetail->seo_description = 'LegenTask saas is easy to use CRM software that is designed for B2B. It include  everything you need to run your businesses. like manage customers, projects, invoices, estimates, timelogs, contract and much more.';
                 $seoDetail->save();
             }
         }

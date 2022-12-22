@@ -149,12 +149,12 @@ class FrontFeatureSeeder extends Seeder
         //Front FAQ
         $client = new \App\FrontFaq();
         $client->question    = 'Can i see demo?';
-        $client->answer = '<span style="color: rgb(68, 68, 68); font-family: Lato, sans-serif; font-size: 16px;">Yes, definitely. We would be happy to demonstrate you Worksuite through a web conference at your convenience. Please submit a query on our contact us page or drop a mail to our mail id worksuite@froiden.com.</span>';
+        $client->answer = '<span style="color: rgb(68, 68, 68); font-family: Lato, sans-serif; font-size: 16px;">Yes, definitely. We would be happy to demonstrate you LegenTask through a web conference at your convenience. Please submit a query on our contact us page or drop a mail to our mail id LegenTask@froiden.com.</span>';
         $client->save();
 
         $client = new \App\FrontFaq();
         $client->question    = 'How can i update app?';
-        $client->answer = '<span style="color: rgb(68, 68, 68); font-family: Lato, sans-serif; font-size: 16px;">Yes, definitely. We would be happy to demonstrate you Worksuite through a web conference at your convenience. Please submit a query on our contact us page or drop a mail to our mail id worksuite@froiden.com.</span>';
+        $client->answer = '<span style="color: rgb(68, 68, 68); font-family: Lato, sans-serif; font-size: 16px;">Yes, definitely. We would be happy to demonstrate you LegenTask through a web conference at your convenience. Please submit a query on our contact us page or drop a mail to our mail id LegenTask@froiden.com.</span>';
         $client->save();
 
 

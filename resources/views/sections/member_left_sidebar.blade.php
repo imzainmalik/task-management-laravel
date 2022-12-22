@@ -228,7 +228,7 @@
 
             {{-- <li><a href="#" class="waves-effect" id="rtl"><i class="ti-settings fa-fw"></i> <span class="hide-menu"> RTL</span></a></li> --}}
 
-            @foreach ($worksuitePlugins as $item)
+            @foreach ($LegenTaskPlugins as $item)
                 @if(in_array(strtolower($item), $modules) || in_array($item, $modules))
                     @if(View::exists(strtolower($item).'::sections.member_left_sidebar'))
                         @include(strtolower($item).'::sections.member_left_sidebar')

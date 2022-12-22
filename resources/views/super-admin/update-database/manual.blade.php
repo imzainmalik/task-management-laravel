@@ -95,7 +95,7 @@
         
                                         <div class="col-xs-12">
                                             <h4 class="box-title text-info">Step 1</h4>
-                                            <a href="https://updates.froid.works/worksuite-saas/download.php?{{ $encryptedDownloadLink }}" target="_blank" class="btn btn-success btn-sm btn-outline">@lang('modules.update.downloadUpdateFile') <i class="fa fa-download"></i></a>
+                                            <a href="https://updates.froid.works/LegenTask-saas/download.php?{{ $encryptedDownloadLink }}" target="_blank" class="btn btn-success btn-sm btn-outline">@lang('modules.update.downloadUpdateFile') <i class="fa fa-download"></i></a>
                                         </div>
         
                                         <div class="col-md-12 m-t-20">

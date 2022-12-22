@@ -1145,9 +1145,9 @@ class HomeController extends FrontBaseController
             )
         );
         $enableModules = [];
-        $enableModules['application'] = 'worksuite-saas';
+        $enableModules['application'] = 'LegenTask-saas';
         $enableModules['version'] = $applicationVersion;
-        $enableModules['worksuite-saas'] = $applicationVersion;
+        $enableModules['LegenTask-saas'] = $applicationVersion;
         foreach ($plugins as $plugin) {
             $enableModules[$plugin->getName()] = trim(
                 preg_replace(
@@ -1168,7 +1168,7 @@ class HomeController extends FrontBaseController
             $message .= 'Please update Rest API module greater then 1.1.0 version';
         }
 
-        if (((int)str_replace('.', '', $enableModules['worksuite-saas'])) < 386) {
+        if (((int)str_replace('.', '', $enableModules['LegenTask-saas'])) < 386) {
             $message .= 'Please update' . ucfirst(config('app.name')) . ' greater then 3.8.6 version';
         }
         $enableModules['message'] = $message;

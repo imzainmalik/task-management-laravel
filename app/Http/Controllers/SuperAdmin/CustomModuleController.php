@@ -71,7 +71,7 @@ class CustomModuleController extends SuperAdminBaseController
         $zipName = $this->getZipName($filePath);
 
         // Extract the files to storage folder first for checking the right plugin
-        // Filename Like codecanyon-0gOuGKoY-zoom-meeting-module-for-worksuite.zip
+        // Filename Like codecanyon-0gOuGKoY-zoom-meeting-module-for-LegenTask.zip
         if (str_contains($zipName, 'codecanyon-')) {
             $zipName = $this->unzipCodecanyon($zip);
         }
@@ -152,7 +152,7 @@ class CustomModuleController extends SuperAdminBaseController
         }
 
         session()->forget('check_migrate_status');
-        session(['worksuite_plugins' => array_keys($plugins)]);
+        session(['LegenTask_plugins' => array_keys($plugins)]);
         return Reply::redirect(route('super-admin.custom-modules.index'), 'Status Changed. Reloading');
     }
 

@@ -385,7 +385,7 @@ return array (
     'systemDetails' => 'Detalles del sistema',
     'updateTitle' => 'Actualizar a la nueva versión',
     'updateDatabase' => 'Actualizar base de datos',
-    'fileReplaceAlert' => 'Para actualizar la worksuite a la nueva versión, verifique la documentación de las instrucciones.',
+    'fileReplaceAlert' => 'Para actualizar la LegenTask a la nueva versión, verifique la documentación de las instrucciones.',
     'updateDatabaseButton' => 'Haga clic para actualizar la base de datos',
     'newUpdate' => 'Nueva actualización disponible',
     'updateNow' => 'Actualizar ahora',

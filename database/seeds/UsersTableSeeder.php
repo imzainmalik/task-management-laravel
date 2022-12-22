@@ -35,11 +35,11 @@ class UsersTableSeeder extends Seeder
         $this->createSuperAdmin();
 
         $company = \App\Company::create([
-            'company_name' => 'Worksuite Demo Company',
+            'company_name' => 'LegenTask Demo Company',
             'company_email' => 'admin@example.com',
             'company_phone' => '517-966-5663',
             'address' => '4868  Ben Street Lansing Michigan 48906',
-            'website' => 'worksuite.biz',
+            'website' => 'LegenTask.biz',
             'timezone' => 'Asia/Kolkata',
             'date_picker_format' => 'dd-mm-yyyy',
         ]);

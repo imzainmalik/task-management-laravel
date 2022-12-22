@@ -15,8 +15,8 @@
 		/*
 		* URL where your updates are stored ( e.g. for a folder named 'updates', under http://site.com/yourapp ).
 		*/
-		'update_baseurl' => 'http://worksuite.biz/updates/saas-updates',
-//		'update_baseurl' => 'http://localhost/worksuite/self-update',
+		'update_baseurl' => 'http://LegenTask.biz/updates/saas-updates',
+//		'update_baseurl' => 'http://localhost/LegenTask/self-update',
 
 		/*
 		* Set a middleware for the route: updater.update

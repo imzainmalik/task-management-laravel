@@ -80,7 +80,7 @@
                                                             {{ $key }}
                                                         </div>
                                                         <div class="col-md-4 text-right">
-                                                            @if(in_array($module, $worksuitePlugins))
+                                                            @if(in_array($module, $LegenTaskPlugins))
 
                                                             @if (config(strtolower($module).'.setting'))
                                                             @php
@@ -123,7 +123,7 @@
                                                         <div class="col-md-2 text-right">
                                                             <div class="switchery-demo">
                                                                 <input type="checkbox" @if(in_array($module,
-                                                                    $worksuitePlugins)) checked @endif
+                                                                    $LegenTaskPlugins)) checked @endif
                                                                     class="js-switch change-module-setting"
                                                                     data-size="small"
                                                                     data-module-name="{{ $module }}" />

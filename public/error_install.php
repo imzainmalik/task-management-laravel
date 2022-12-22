@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>Worksuite Saas Not installed</title>
+    <title>LegenTask Saas Not installed</title>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 </head>
 

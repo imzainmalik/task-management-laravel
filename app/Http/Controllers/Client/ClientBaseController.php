@@ -169,7 +169,7 @@ class ClientBaseController extends Controller
                 $this->url = 'https://' . config('filesystems.disks.s3.bucket') . '.s3.amazonaws.com/';
             }
 
-            $this->worksuitePlugins = worksuite_plugins();
+            $this->LegenTaskPlugins = LegenTask_plugins();
 
             return $next($request);
         });

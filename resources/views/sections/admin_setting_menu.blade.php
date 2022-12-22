@@ -86,7 +86,7 @@
             <a href="{{ route('admin.google-calendar.index') }}">@lang('app.googleCalendar')</a></li>
     @endif
 
-    @foreach ($worksuitePlugins as $item)
+    @foreach ($LegenTaskPlugins as $item)
         @if(in_array(strtolower($item), $modules))
             @if(View::exists(strtolower($item).'::sections.admin_setting_menu'))
                 @include(strtolower($item).'::sections.admin_setting_menu')

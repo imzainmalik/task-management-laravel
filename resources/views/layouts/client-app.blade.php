@@ -328,7 +328,7 @@
                 <div
                     class="
             @if (!empty($__env->yieldContent('filter-section')) || !empty($__env->yieldContent('other-section'))) col-md-9
-@else
+                @else
                     col-md-12 @endif
                     data-section">
                     <button
@@ -384,8 +384,7 @@
              @if ($note->colour == 'green') bg-success @endif
              @if ($note->colour == 'yellow') bg-warning @endif
              @if ($note->colour == 'blue') bg-info @endif
-             @if ($note->colour == 'purple') bg-purple @endif
-             b-none">
+             @if ($note->colour == 'purple') bg-purple @endif  b-none">
                         <p>{!! nl2br($note->note_text) !!}</p>
                         <hr>
                         <div class="row font-12">

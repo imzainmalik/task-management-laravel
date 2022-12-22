@@ -29,7 +29,7 @@ class GlobalSetting extends BaseModel
     public function getLogoUrlAttribute()
     {
         if (is_null($this->logo)) {
-            return asset('img/worksuite-logo.png');
+            return asset('img/LegenTask-logo.png');
         }
 
         return asset_url('app-logo/' . $this->logo);
@@ -39,7 +39,7 @@ class GlobalSetting extends BaseModel
     {
         if (is_null($this->logo_front)) {
             if (is_null($this->logo)) {
-                return asset('front/img/worksuite-logo.png');
+                return asset('front/img/LegenTask-logo.png');
             }
             return $this->logo_url;
         }

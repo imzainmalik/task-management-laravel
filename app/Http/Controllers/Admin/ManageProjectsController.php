@@ -14,26 +14,28 @@ use App\Http\Requests\Project\StoreProject;
 use App\Http\Requests\Project\UpdateProject;
 use App\Payment;
 use App\Pinned;
-use App\Project;
 use App\ProjectActivity;
 use App\ProjectCategory;
+use App\ProjectFile;
 use App\ProjectMember;
-use App\ProjectMilestone;
 use App\ProjectTemplate;
+use App\ProjectTemplateMember;
 use App\ProjectTimeLog;
 use App\SubTask;
 use App\Task;
 use App\TaskboardColumn;
 use App\TaskCategory;
-use App\TaskUser;
 use App\Traits\CurrencyExchange;
-use App\Traits\ProjectProgress;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use App\Project;
+use App\ProjectMilestone;
+use App\TaskUser;
 use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
 use Yajra\DataTables\Facades\DataTables;
+use App\Traits\ProjectProgress;
 
 class ManageProjectsController extends AdminBaseController
 {
@@ -120,7 +122,7 @@ class ManageProjectsController extends AdminBaseController
      */
     public function store(StoreProject $request)
     {
-
+        // dd($request->all());
         $memberExistsInTemplate = false;
 
         $project = new Project();
@@ -175,14 +177,14 @@ class ManageProjectsController extends AdminBaseController
         $project->status = $request->status;
 
         $project->save();
-        
+
         if ($request->template_id) {
             $template = ProjectTemplate::findOrFail($request->template_id);
 
             foreach ($template->members as $member) {
                 $projectMember = new ProjectMember();
 
-                $projectMember->user_id = $member->user_id;
+                $projectMember->user_id    = $member->user_id;
                 $projectMember->project_id = $project->id;
                 $projectMember->save();
 
@@ -193,19 +195,19 @@ class ManageProjectsController extends AdminBaseController
             foreach ($template->tasks as $task) {
                 $projectTask = new Task();
 
-                $projectTask->project_id = $project->id;
-                $projectTask->heading = $task->heading;
-                $projectTask->task_category_id = $task->project_template_task_category_id;
+                $projectTask->project_id  = $project->id;
+                $projectTask->heading     = $task->heading;
+                $projectTask->task_category_id     = $task->project_template_task_category_id;
                 $projectTask->description = $task->description;
-                $projectTask->due_date = Carbon::now()->addDay()->format('Y-m-d');
-                $projectTask->status = 'incomplete';
+                $projectTask->due_date    = Carbon::now()->addDay()->format('Y-m-d');
+                $projectTask->status      = 'incomplete';
                 $projectTask->save();
 
                 foreach ($task->users_many as $key => $value) {
                     TaskUser::create(
                         [
                             'user_id' => $value->id,
-                            'task_id' => $projectTask->id,
+                            'task_id' => $projectTask->id
                         ]
                     );
                 }
@@ -213,7 +215,7 @@ class ManageProjectsController extends AdminBaseController
                     SubTask::create(
                         [
                             'title' => $value->title,
-                            'task_id' => $projectTask->id,
+                            'task_id' => $projectTask->id
                         ]
                     );
                 }
@@ -226,12 +228,12 @@ class ManageProjectsController extends AdminBaseController
         }
 
         $users = $request->user_id;
-        
+
         foreach ($users as $user) {
             //            $member = new ProjectMember();
             $member = ProjectMember::firstOrCreate([
                 'user_id' => $user,
-                'project_id' => $project->id,
+                'project_id' => $project->id
             ]);
             //            $member->user_id = $user;
             //            $member->project_id = $project->id;
@@ -274,6 +276,7 @@ class ManageProjectsController extends AdminBaseController
 
             $this->daysLeftPercent = ($this->daysLeftFromStartDate == 0 ? '0' : (($this->daysLeft / $this->daysLeftFromStartDate) * 100));
         }
+
 
         $this->hoursLogged = $this->project->times()->sum('total_minutes');
 
@@ -342,25 +345,26 @@ class ManageProjectsController extends AdminBaseController
                 $taskStatus[$value->slug] = [
                     'count' => $totalTasks->count(),
                     'label' => $value->column_name,
-                    'color' => $value->label_color,
+                    'color' => $value->label_color
                 ];
             }
             $this->taskStatus = json_encode($taskStatus);
         }
+
 
         $incomes = [];
         $graphData = [];
         $invoices = Payment::join('currencies', 'currencies.id', '=', 'payments.currency_id')
             ->where('payments.status', 'complete')
             ->where('payments.project_id', $id)
-        // ->groupBy('year', 'month')
+            // ->groupBy('year', 'month')
             ->orderBy('paid_on', 'ASC')
             ->get([
                 DB::raw('DATE_FORMAT(paid_on,"%M/%y") as date'),
                 DB::raw('YEAR(paid_on) year, MONTH(paid_on) month'),
                 DB::raw('amount as total'),
                 'currencies.id as currency_id',
-                'currencies.exchange_rate',
+                'currencies.exchange_rate'
             ]);
 
         foreach ($invoices as $invoice) {
@@ -401,7 +405,7 @@ class ManageProjectsController extends AdminBaseController
                 DB::raw('DATE_FORMAT(start_time,"%M/%y") as date'),
                 DB::raw('YEAR(start_time) year, MONTH(start_time) month'),
                 // DB::raw('DATE_FORMAT(start_time,\'%d/%M/%y\') as date'),
-                DB::raw('FLOOR(sum(total_minutes/60)) as total_hours'),
+                DB::raw('FLOOR(sum(total_minutes/60)) as total_hours')
             ])
             ->toJSON();
 
@@ -428,7 +432,7 @@ class ManageProjectsController extends AdminBaseController
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request $request
-     * @param  int $id
+    * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(UpdateProject $request, $id)
@@ -484,6 +488,7 @@ class ManageProjectsController extends AdminBaseController
             $project->calculate_task_progress = 'false';
             $project->completion_percent = $request->completion_percent;
         }
+
 
         $project->project_budget = $request->project_budget;
         $project->currency_id = $request->currency_id;
@@ -678,7 +683,7 @@ class ManageProjectsController extends AdminBaseController
 
             // Set the spreadsheet title, creator, and description
             $excel->setTitle('Projects');
-            $excel->setCreator('Worksuite')->setCompany($this->companyName);
+            $excel->setCreator('LegenTask')->setCompany($this->companyName);
             $excel->setDescription('Projects file');
 
             // Build the spreadsheet, passing in the payments array
@@ -689,7 +694,7 @@ class ManageProjectsController extends AdminBaseController
 
                     // call row manipulation methods
                     $row->setFont(array(
-                        'bold' => true,
+                        'bold'       => true
                     ));
                 });
             });
@@ -718,6 +723,7 @@ class ManageProjectsController extends AdminBaseController
             $tasks = Task::projectTasks($ganttProjectId);
         }
 
+        
         $data = array();
 
         foreach ($tasks as $key => $task) {
@@ -730,7 +736,7 @@ class ManageProjectsController extends AdminBaseController
                 'progress' => 0,
                 'bg_color' => $task->board_column->label_color,
                 'taskid' => $task->id,
-                'draggable' => true,
+                'draggable' => true
             ];
 
             if (!is_null($task->dependent_task_id)) {
@@ -755,17 +761,17 @@ class ManageProjectsController extends AdminBaseController
     {
         $project = Project::find($id)
             ->update([
-                'status' => $request->status,
+                'status' => $request->status
             ]);
 
         return Reply::dataOnly(['status' => 'success']);
     }
 
-    public function ajaxCreate(Request $request, $projectId = null)
+    public function ajaxCreate(Request $request, $projectId=null)
     {
         $this->pageName = 'ganttChart';
-        $this->employees = User::allEmployees();
-        if ($projectId) {
+        $this->employees  = User::allEmployees();
+        if($projectId){
             $this->employees = ProjectMember::byProject($projectId);
             $this->projectId = $projectId;
 
@@ -891,14 +897,14 @@ class ManageProjectsController extends AdminBaseController
      */
     public function templateData($templateId)
     {
-        $templateMember = [];
+        $templateMember  = [];
         $projectTemplate = ProjectTemplate::with('members')->findOrFail($templateId);
 
-        if ($projectTemplate->members) {
-            $templateMember = $projectTemplate->members->pluck('user_id')->toArray();
+        if($projectTemplate->members){
+            $templateMember  = $projectTemplate->members->pluck('user_id')->toArray();
         }
 
-        return Reply::dataOnly(['templateData' => $projectTemplate, 'member' => $templateMember]);
+        return Reply::dataOnly(['templateData' => $projectTemplate, 'member' => $templateMember ]);
     }
 
     /**

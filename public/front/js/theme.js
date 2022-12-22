@@ -2,17 +2,17 @@
 
 
 //----------------------------------------------------/
-// Worksuite
+// LegenTask
 //----------------------------------------------------/
 //
 +function($, window){
 
-  var worksuite = {
-    name:       'Worksuite',
+  var LegenTask = {
+    name:       'LegenTask',
     version:    '1.5.0',
   };
 
-  worksuite.defaults = {
+  LegenTask.defaults = {
     googleApiKey: null,
     googleAnalyticsId: null,
     reCaptchaSiteKey: null,
@@ -22,7 +22,7 @@
 
   // Breakpoint values
   //
-  worksuite.breakpoint = {
+  LegenTask.breakpoint = {
     xs: 576,
     sm: 768,
     md: 992,
@@ -32,22 +32,22 @@
 
   // Config application
   //
-  worksuite.config = function(options) {
-    //$.extend(true, worksuite.defaults, options);
+  LegenTask.config = function(options) {
+    //$.extend(true, LegenTask.defaults, options);
 
     // Rteurn config value
     if ( typeof options === 'string' ) {
-      return worksuite.defaults[options];
+      return LegenTask.defaults[options];
     }
 
 
     // Save configs
-    $.extend(true, worksuite.defaults, options);
+    $.extend(true, LegenTask.defaults, options);
 
 
     // Make necessary changes
     //
-    if ( !worksuite.defaults.smoothScroll ) {
+    if ( !LegenTask.defaults.smoothScroll ) {
       SmoothScroll.destroy();
     }
 
@@ -56,19 +56,19 @@
     // Google map
     // 
     if ( $('[data-provide~="map"]').length && window["google.maps.Map"] === undefined ) {
-      $.getScript("https://maps.googleapis.com/maps/api/js?key="+ worksuite.defaults.googleApiKey +"&callback=worksuite.map");
+      $.getScript("https://maps.googleapis.com/maps/api/js?key="+ LegenTask.defaults.googleApiKey +"&callback=LegenTask.map");
     }
 
 
     // Google Analytics
     //
-    if ( worksuite.defaults.googleAnalyticsId ) {
+    if ( LegenTask.defaults.googleAnalyticsId ) {
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
       })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-      ga('create', worksuite.defaults.googleAnalyticsId, 'auto');
+      ga('create', LegenTask.defaults.googleAnalyticsId, 'auto');
       ga('send', 'pageview');
     }
 
@@ -77,8 +77,8 @@
     // 
     if ( $('[data-provide~="recaptcha"]').length && window["grecaptcha"] === undefined ) {
       var url = "https://www.google.com/recaptcha/api.js?onload=recaptchaCallback";
-      if ( worksuite.defaults.reCaptchaLanguage != '' ) {
-        url += '&hl=' + worksuite.defaults.reCaptchaLanguage;
+      if ( LegenTask.defaults.reCaptchaLanguage != '' ) {
+        url += '&hl=' + LegenTask.defaults.reCaptchaLanguage;
       }
       $.getScript(url);
     }
@@ -89,20 +89,20 @@
 
   // Initialize the application
   //
-  worksuite.init = function() {
+  LegenTask.init = function() {
 
-    worksuite.topbar();
-    worksuite.parallax();
-    worksuite.carousel();
-    worksuite.scrolling();
-    worksuite.counter();
-    worksuite.aos();
-    worksuite.typed();
-    worksuite.contact();
-    worksuite.mailer();
-    worksuite.constellation();
-    worksuite.shuffle();
-    worksuite.bindValue();
+    LegenTask.topbar();
+    LegenTask.parallax();
+    LegenTask.carousel();
+    LegenTask.scrolling();
+    LegenTask.counter();
+    LegenTask.aos();
+    LegenTask.typed();
+    LegenTask.contact();
+    LegenTask.mailer();
+    LegenTask.constellation();
+    LegenTask.shuffle();
+    LegenTask.bindValue();
 
 
     // Lightbox
@@ -182,7 +182,7 @@
   //----------------------------------------------------/
   // Parallax
   //----------------------------------------------------/
-  worksuite.parallax = function() {
+  LegenTask.parallax = function() {
 
     $('[data-parallax]').each(function() {
       var parallax = $(this);
@@ -196,7 +196,7 @@
         options.speed = 0.6;
       }
 
-      options = $.extend( options, worksuite.getDataOptions(parallax));
+      options = $.extend( options, LegenTask.getDataOptions(parallax));
 
       parallax.parallax( options );
 
@@ -209,7 +209,7 @@
   //----------------------------------------------------/
   // Google map
   //----------------------------------------------------/
-  worksuite.map = function() {
+  LegenTask.map = function() {
 
     $('[data-provide~="map"]').each(function() {
 
@@ -223,7 +223,7 @@
         style: ''
       }
 
-      setting = $.extend(setting, worksuite.getDataOptions($(this)));
+      setting = $.extend(setting, LegenTask.getDataOptions($(this)));
 
       var map = new google.maps.Map( $(this)[0], {
         center: {
@@ -275,14 +275,14 @@
   //----------------------------------------------------/
   // Google reCAPTCHA
   //----------------------------------------------------/
-  worksuite.recaptcha = function() {
+  LegenTask.recaptcha = function() {
     $('[data-provide~="recaptcha"]').each(function() {
 
       var options = {
-        sitekey: worksuite.defaults.reCaptchaSiteKey
+        sitekey: LegenTask.defaults.reCaptchaSiteKey
       }
 
-      options = $.extend(options, worksuite.getDataOptions($(this)));
+      options = $.extend(options, LegenTask.getDataOptions($(this)));
       grecaptcha.render( $(this)[0], options);
     });
 
@@ -295,7 +295,7 @@
   //----------------------------------------------------/
   // Carousel
   //----------------------------------------------------/
-  worksuite.carousel = function() {
+  LegenTask.carousel = function() {
 
     $('.swiper-container').each(function(){
       var options = {
@@ -325,7 +325,7 @@
         options.paginationClickable = true;
       }
 
-      options = $.extend( options, worksuite.getDataOptions(swiper));
+      options = $.extend( options, LegenTask.getDataOptions(swiper));
 
       new Swiper ( swiper, options );
     });
@@ -338,7 +338,7 @@
   //----------------------------------------------------/
   // Smooth scroll to a target element
   //----------------------------------------------------/
-  worksuite.scrolling = function() {
+  LegenTask.scrolling = function() {
 
     var topbar_height = 60;
     var html_body = $('html, body');
@@ -378,7 +378,7 @@
   //----------------------------------------------------/
   // jQuery CountTo and Count Down
   //----------------------------------------------------/
-  worksuite.counter = function() {
+  LegenTask.counter = function() {
 
     // CountTo
     var waypoints = $('[data-provide~="counter"]:not(.counted)').waypoint({
@@ -432,7 +432,7 @@
   //----------------------------------------------------/
   // Animate on scroll
   //----------------------------------------------------/
-  worksuite.aos = function() {
+  LegenTask.aos = function() {
     AOS.init({
       offset: 220,
       duration: 1500,
@@ -457,7 +457,7 @@
   //----------------------------------------------------/
   // Topbar functionality
   //----------------------------------------------------/
-  worksuite.topbar = function() {
+  LegenTask.topbar = function() {
 
     var body = $('body');
     $(window).on('scroll', function() {
@@ -527,7 +527,7 @@
   //----------------------------------------------------/
   // Typed
   //----------------------------------------------------/
-  worksuite.typed = function() {
+  LegenTask.typed = function() {
 
     $('[data-type]').each(function(){
       var strings = $(this).data('type').split(',');
@@ -539,7 +539,7 @@
         loop: true
       };
 
-      options = $.extend( options, worksuite.getDataOptions($(this)) );
+      options = $.extend( options, LegenTask.getDataOptions($(this)) );
       var typed = new Typed( $(this)[0], options );
     });
 
@@ -554,7 +554,7 @@
         loop: true
       }
 
-      options = $.extend( options, worksuite.getDataOptions(el) );
+      options = $.extend( options, LegenTask.getDataOptions(el) );
 
       el.typed(options);
     });
@@ -567,7 +567,7 @@
   //----------------------------------------------------/
   // Contact form - This is depricated
   //----------------------------------------------------/
-  worksuite.contact = function() {
+  LegenTask.contact = function() {
 
     $(document).on('click', '#contact-send', function(){
       
@@ -610,7 +610,7 @@
   //----------------------------------------------------/
   // Mailer function
   //----------------------------------------------------/
-  worksuite.mailer = function() {
+  LegenTask.mailer = function() {
 
     var validEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
@@ -680,7 +680,7 @@
   //----------------------------------------------------/
   // Constellation
   //----------------------------------------------------/
-  worksuite.constellation = function() {
+  LegenTask.constellation = function() {
     var color    = 'rgba(255, 255, 255, .8)',
         distance = 120;
 
@@ -719,7 +719,7 @@
   //----------------------------------------------------/
   // Shuffle.js
   //----------------------------------------------------/
-  worksuite.shuffle = function() {
+  LegenTask.shuffle = function() {
     if ( undefined === window['Shuffle'] || 0 === $('[data-provide="shuffle"]').length ) {
       return;
     }
@@ -791,7 +791,7 @@
   //----------------------------------------------------/
   // Bind
   //----------------------------------------------------/
-  worksuite.bindValue = function() {
+  LegenTask.bindValue = function() {
 
     $('[data-bind-radio]').each(function(){
       var e     = $(this),
@@ -816,12 +816,12 @@
 
   // Convert data-attributes options to Javascript object
   //
-  worksuite.getDataOptions = function(el, castList) {
+  LegenTask.getDataOptions = function(el, castList) {
     var options = {};
 
     $.each( $(el).data(), function(key, value){
 
-      key = worksuite.dataToOption(key);
+      key = LegenTask.dataToOption(key);
 
       // Escape data-provide
       if ( key == 'provide' ) {
@@ -857,27 +857,27 @@
 
   // Convert fooBarBaz to foo-bar-baz
   //
-  worksuite.optionToData = function(name) {
+  LegenTask.optionToData = function(name) {
     return name.replace(/([A-Z])/g, "-$1").toLowerCase();
   }
 
 
   // Convert foo-bar-baz to fooBarBaz
   //
-  worksuite.dataToOption = function(name) {
+  LegenTask.dataToOption = function(name) {
     return name.replace(/-([a-z])/g, function(x){return x[1].toUpperCase();});
   }
 
 
 
-  window.worksuite = worksuite;
+  window.LegenTask = LegenTask;
 }(jQuery, window);
 
 
 
 
 $(function() {
-  worksuite.init();
+  LegenTask.init();
 });
 
 
@@ -908,5 +908,5 @@ jQuery.expr[':'].search = function(a, i, m) {
 
 
 function recaptchaCallback() {
-  worksuite.recaptcha();
+  LegenTask.recaptcha();
 }

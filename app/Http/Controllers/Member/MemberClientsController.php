@@ -352,7 +352,7 @@ class MemberClientsController extends MemberBaseController
 
             // Set the spreadsheet title, creator, and description
             $excel->setTitle('Clients');
-            $excel->setCreator('Worksuite')->setCompany($this->companyName);
+            $excel->setCreator('LegenTask')->setCompany($this->companyName);
             $excel->setDescription('clients file');
 
             // Build the spreadsheet, passing in the payments array

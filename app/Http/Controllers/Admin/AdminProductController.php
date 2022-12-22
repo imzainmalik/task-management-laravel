@@ -169,7 +169,7 @@ class AdminProductController extends AdminBaseController
 
             // Set the spreadsheet title, creator, and description
             $excel->setTitle('Product');
-            $excel->setCreator('Worksuite')->setCompany($this->companyName);
+            $excel->setCreator('LegenTask')->setCompany($this->companyName);
             $excel->setDescription('Product file');
 
             // Build the spreadsheet, passing in the payments array

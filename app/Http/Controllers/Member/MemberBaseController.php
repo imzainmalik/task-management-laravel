@@ -132,14 +132,14 @@ class MemberBaseController extends Controller
                 ->count();
             $this->stickyNotes = StickyNote::where('user_id', $this->user->id)->orderBy('updated_at', 'desc')->get();
             $this->invoiceSetting = InvoiceSetting::first();
-            $this->worksuitePlugins = worksuite_plugins();
+            $this->LegenTaskPlugins = LegenTask_plugins();
             $this->rtl = $this->global->rtl;
             
             if (config('filesystems.default') == 's3') {
                 $this->url = 'https://' . config('filesystems.disks.s3.bucket') . '.s3.amazonaws.com/';
             }
 
-            $this->worksuitePlugins = worksuite_plugins();
+            $this->LegenTaskPlugins = LegenTask_plugins();
             
             return $next($request);
         });

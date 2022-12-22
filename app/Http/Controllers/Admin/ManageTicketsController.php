@@ -487,7 +487,7 @@ class ManageTicketsController extends AdminBaseController
 
             // Set the spreadsheet title, creator, and description
             $excel->setTitle('Ticket');
-            $excel->setCreator('Worksuite')->setCompany($this->companyName);
+            $excel->setCreator('LegenTask')->setCompany($this->companyName);
             $excel->setDescription('Ticket file');
 
             // Build the spreadsheet, passing in the payments array

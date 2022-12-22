@@ -265,7 +265,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                    <h4 class="modal-title" id="myModalLabel">Do you like worksuite? Help us Grow :)</h4>
+                    <h4 class="modal-title" id="myModalLabel">Do you like LegenTask? Help us Grow :)</h4>
 
                 </div>
                 <div class="modal-body">
@@ -283,7 +283,7 @@
 
                         <p class="text-center">
                             <a href="{{\Froiden\Envato\Functions\EnvatoUpdate::reviewUrl()}}"> <img
-                                        src="{{asset('img/review-worksuite.png')}}" alt=""></a>
+                                        src="{{asset('img/review-LegenTask.png')}}" alt=""></a>
                             <button type="button" class="btn btn-link" data-dismiss="modal"
                                     onclick="hideReviewModal('closed_permanently_button_pressed')">Hide Pop up
                                 permanently

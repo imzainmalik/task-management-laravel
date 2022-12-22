@@ -18,7 +18,7 @@ class GlobalSettingTableSeeder extends Seeder
         $setting = new \App\GlobalSetting();
 
         $setting->currency_id = $currency->id;
-        $setting->company_name = 'Worksuite Saas';
+        $setting->company_name = 'LegenTask Saas';
         $setting->company_email = 'company@email.com';
         $setting->company_phone = '1234567891';
         $setting->address = 'Company address';

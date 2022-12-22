@@ -1,10 +1,10 @@
 <?php
 //directory at froiden-updates
-$product = 'worksuite-saas';
+$product = 'LegenTask-saas';
 
 $envato_item_id = 23263417;
 
-$productUrl = 'http://1.envato.market/worksuitesaas';
+$productUrl = 'http://1.envato.market/LegenTasksaas';
 
 $updatesDomain = 'https://froiden-updates.s3.ap-south-1.amazonaws.com';
 
@@ -59,7 +59,7 @@ return [
     * Generally, ADMIN have user_id=1; set FALSE to disable this check (not recommended)
     */
 
-    'allow_users_id' => false,
+    'allow_users_id' => true,
 
     'versionLog' => $verifyDomain . '/version-log/'.$product,
 

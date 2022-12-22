@@ -132,9 +132,9 @@
                     <li role="separator" class="divider"></li>
                     <li><a href="{{ route('logout') }}"
                             onclick="event.preventDefault();
-                                                        document.getElementById('logout-form').submit();">
-                            <i class="fa fa-power-off"></i> @lang('app.logout')
-                        </a>
+                                                        document.getElementById('logout-form').submit();"><i
+                                class="fa fa-power-off"></i> @lang('app.logout')</a>
+
                     </li>
                 </ul>
             </li>
@@ -154,6 +154,13 @@
                             </a>
                         </li>
                     @endif
+                    @if (in_array('clients', $modules) || in_array('leads', $modules))
+                        <li>
+                            <a href="{{ route('admin.clientDashboard') }}" class="waves-effect">
+                                @lang('app.menu.clientDashboard')
+                            </a>
+                        </li>
+                    @endif
                     {{-- @if (in_array('employees', $modules) || in_array('attendance', $modules) || in_array('holidays', $modules) || in_array('leaves', $modules))
                         <li>
                             <a href="{{ route('admin.hrDashboard') }}" class="waves-effect">
@@ -161,27 +168,22 @@
                             </a>
                         </li>
                     @endif --}}
-                    {{-- @if (in_array('clients', $modules) || in_array('leads', $modules))
-                        <li>
-                            <a href="{{ route('admin.clientDashboard') }}" class="waves-effect">
-                                @lang('app.menu.clientDashboard')
-                            </a>
-                        </li>
-                    @endif
-                    
-                    @if (in_array('tickets', $modules))                        <li>
+                    {{-- @if (in_array('tickets', $modules))                        <li>
                             <a href="{{ route('admin.ticketDashboard') }}" class="waves-effect">
                                 @lang('app.menu.ticketDashboard')
                             </a>
                         </li>
-                    @endif
-                    @if (in_array('estimates', $modules) || in_array('invoices', $modules) || in_array('payments', $modules) || in_array('expenses', $modules))
+                    @endif --}}
+                    @if (in_array('estimates', $modules) ||
+                        in_array('invoices', $modules) ||
+                        in_array('payments', $modules) ||
+                        in_array('expenses', $modules))
                         <li>
                             <a href="{{ route('admin.financeDashboard') }}" class="waves-effect">
                                 @lang('app.menu.financeDashboard')
                             </a>
                         </li>
-                    @endif --}}
+                    @endif
                 </ul>
             </li>
             @if (in_array('leads', $modules))
@@ -189,9 +191,10 @@
                             class="icon-doc fa-fw"></i><span class="hide-menu">@lang('app.menu.lead')</span></a>
                 </li>
             @endif
-            {{-- @if (in_array('clients', $modules))
-                <li><a href="{{ route('admin.clients.index') }}" class="waves-effect"><i class="icon-people fa-fw"></i><span class="hide-menu">@lang('app.menu.clients')</span></a> </li>
-            @endif --}}
+            @if (in_array('clients', $modules))
+                <li><a href="{{ route('admin.clients.index') }}" class="waves-effect"><i
+                            class="icon-people fa-fw"></i><span class="hide-menu">@lang('app.menu.clients')</span></a> </li>
+            @endif
             @if (in_array('employees', $modules) ||
                 in_array('attendance', $modules) ||
                 in_array('holidays', $modules) ||
@@ -200,7 +203,7 @@
                         class="waves-effect
                     {{ request()->is('admin/leave*') ? 'active' : '' }}
                     "><i
-                            class="ti-user fa-fw"></i> <span class="hide-menu"> Team Managements <span
+                            class="ti-user fa-fw"></i> <span class="hide-menu"> @lang('app.menu.hr') <span
                                 class="fa arrow"></span> </span></a>
                     <ul class="nav nav-second-level {{ request()->is('admin/leave*') ? 'collapse in' : '' }}">
                         @if (in_array('employees', $modules))
@@ -208,16 +211,20 @@
                             <li><a href="{{ route('admin.teams.index') }}">@lang('app.department')</a></li>
                             <li><a href="{{ route('admin.designations.index') }}">@lang('app.menu.designation')</a></li>
                         @endif
-                        {{-- @if (in_array('attendance', $modules))
-                            <li><a href="{{ route('admin.attendances.summary') }}" class="waves-effect">@lang('app.menu.attendance')</a> </li>
+                        @if (in_array('attendance', $modules))
+                            <li><a href="{{ route('admin.attendances.summary') }}"
+                                    class="waves-effect">@lang('app.menu.attendance')</a> </li>
                         @endif
                         @if (in_array('holidays', $modules))
-                            <li><a href="{{ route('admin.holidays.index') }}" class="waves-effect">@lang('app.menu.holiday')</a>
+                            <li><a href="{{ route('admin.holidays.index') }}"
+                                    class="waves-effect">@lang('app.menu.holiday')</a>
                             </li>
                         @endif
                         @if (in_array('leaves', $modules))
-                            <li><a href="{{ route('admin.leaves.pending') }}" class="waves-effect  {{ request()->is('admin/leave*') ? 'active' : '' }}">@lang('app.menu.leaves')</a> </li>
-                        @endif --}}
+                            <li><a href="{{ route('admin.leaves.pending') }}"
+                                    class="waves-effect  {{ request()->is('admin/leave*') ? 'active' : '' }}">@lang('app.menu.leaves')</a>
+                            </li>
+                        @endif
                     </ul>
                 </li>
             @endif
@@ -229,12 +236,16 @@
                 <li><a href="{{ route('admin.task.index') }}" class="waves-effect"><i class="icon-layers fa-fw"></i>
                         <span class="hide-menu"> @lang('app.menu.work') <span class="fa arrow"></span> </span></a>
                     <ul class="nav nav-second-level">
-                        {{-- @if (in_array('contracts', $modules))
-                            <li><a href="{{ route('admin.contracts.index') }}" class="waves-effect">@lang('app.menu.contracts')</a></li>
-                        @endif --}}
+                        @if (in_array('contracts', $modules))
+                            <li><a href="{{ route('admin.contracts.index') }}"
+                                    class="waves-effect">@lang('app.menu.contracts')</a></li>
+                        @endif
                         @if (in_array('projects', $modules))
-                            <li><a href="{{ route('admin.projects.index') }}" class="waves-effect">@lang('app.menu.projects')
-                                </a> </li>
+                            <li>
+                                <a href="{{ route('admin.projects.index') }}" class="waves-effect">
+                                    @lang('app.menu.projects')
+                                </a>
+                            </li>
                         @endif
                         @if (in_array('tasks', $modules))
                             <li><a href="{{ route('admin.all-tasks.index') }}">@lang('app.menu.tasks')</a></li>
@@ -243,15 +254,18 @@
                             <li><a href="{{ route('admin.task-calendar.index') }}">@lang('app.menu.taskCalendar')</a></li>
                         @endif
                         @if (in_array('timelogs', $modules))
-                            <li><a href="{{ route('admin.all-time-logs.index') }}"
-                                    class="waves-effect">@lang('app.menu.timeLogs')</a> </li>
+                            <li>
+                                <a href="{{ route('admin.all-time-logs.index') }}"class="waves-effect">
+                                    @lang('app.menu.timeLogs')
+                                </a> 
+                            </li>
                         @endif
 
                     </ul>
                 </li>
             @endif
-
-            {{-- @if (in_array('estimates', $modules) || in_array('invoices', $modules) || in_array('payments', $modules) || in_array('expenses', $modules))
+            {{-- 
+            @if (in_array('estimates', $modules) || in_array('invoices', $modules) || in_array('payments', $modules) || in_array('expenses', $modules))
                 <li><a href="{{ route('admin.finance.index') }}" class="waves-effect"><i class="fa fa-money fa-fw"></i> <span class="hide-menu"> @lang('app.menu.finance') @if ($unreadExpenseCount > 0) <div class="notify notification-color"><span class="heartbit"></span><span class="point"></span></div>@endif <span class="fa arrow"></span> </span></a>
                     <ul class="nav nav-second-level">
                         @if (in_array('estimates', $modules))
@@ -320,18 +334,13 @@
                             <li><a href="{{ route('admin.time-log-report.index') }}">@lang('app.menu.timeLogReport')</a></li>
                         @endif
 
-                        {{-- @if (in_array('estimates', $modules) || in_array('invoices', $modules) || in_array('payments', $modules) || in_array('expenses', $modules))
-                        <li><a href="{{ route('admin.finance-report.index') }}">@lang('app.menu.financeReport')</a></li>
-                        <li><a href="{{ route('admin.income-expense-report.index') }}">@lang('app.menu.incomeVsExpenseReport')</a></li>
-                    @endif
-
-                    @if (in_array('leaves', $modules))
-                        <li><a href="{{ route('admin.leave-report.index') }}">@lang('app.menu.leaveReport')</a></li>
-                    @endif
-
-                    @if (in_array('attendance', $modules))
-                        <li><a href="{{ route('admin.attendance-report.index') }}">@lang('app.menu.attendanceReport')</a></li>
-                    @endif --}}
+                        @if (in_array('estimates', $modules) ||
+                            in_array('invoices', $modules) ||
+                            in_array('payments', $modules) ||
+                            in_array('expenses', $modules))
+                            <li><a href="{{ route('admin.finance-report.index') }}">@lang('app.menu.financeReport')</a></li>
+                            <li><a href="{{ route('admin.income-expense-report.index') }}">@lang('app.menu.incomeVsExpenseReport')</a></li>
+                        @endif 
                     </ul>
                 </li>
             @endif
@@ -341,23 +350,23 @@
             </li>
             @endrole --}}
 
-            @foreach ($worksuitePlugins as $item)
+            {{-- @foreach ($LegenTaskPlugins as $item)
                 @if (in_array(strtolower($item), $modules) || in_array($item, $modules))
                     @if (View::exists(strtolower($item) . '::sections.left_sidebar'))
-                        @include(strtolower($item) . '::sections.left_sidebar')
+                        @include(strtolower($item).'::sections.left_sidebar')
                     @endif
                 @endif
             @endforeach
-            {{-- <li><a href="{{ route('admin.employee-faq.index') }}" class="waves-effect
+                <li><a href="{{ route('admin.employee-faq.index') }}" class="waves-effect
                     {{ request()->is('admin/employee-faq*') ? 'active' : '' }}"><i class="icon-docs fa-fw"></i> <span class="hide-menu"> @lang('app.faq') <span class="fa arrow"></span> </span></a>
                     <ul class="nav nav-second-level {{ request()->is('admin/employee-faq*') ? 'collapse in' : '' }}">
                         <li><a href="{{ route('admin.faqs.index') }}" class="waves-effect"><i class="icon-docs fa-fw"></i> <span class="hide-menu"> @lang('app.myFaq')</span></a></li>
                         <li><a href="{{ route('admin.employee-faq.index') }}" class="waves-effect"><i class="icon-docs fa-fw"></i> <span class="hide-menu"> @lang('app.menu.employeeFaq')</span></a></li>
 
                     </ul>
-                </li> --}}
-            {{-- <li><a href="{{ route('admin.settings.index') }}" class="waves-effect"><i class="ti-settings fa-fw"></i> <span class="hide-menu"> @lang('app.menu.settings')</span></a> --}}
-            </li>
+                </li>
+            <li><a href="{{ route('admin.settings.index') }}" class="waves-effect"><i class="ti-settings fa-fw"></i> <span class="hide-menu"> @lang('app.menu.settings')</span></a>
+            </li> --}}
 
             {{--            <li><a href="" class="waves-effect"><i class="ti-settings fa-fw"></i> <span class="hide-menu"> @lang('app.menu.settings') <span class="fa arrow"></span> </span></a> --}}
             {{--                    <ul class="nav nav-second-level collapse"> --}}
@@ -419,11 +428,12 @@
 
             <div class="col-lg-4 text-center  m-b-5">
                 <div class="btn-group dropup shortcut-dropdown">
-                    <a class="dropdown-toggle waves-effect waves-light text-uppercase" data-toggle="dropdown" href="#">
+                    <a class="dropdown-toggle waves-effect waves-light text-uppercase" data-toggle="dropdown"
+                        href="#">
                         <i class="fa fa-plus"></i>
                     </a>
                     <ul class="dropdown-menu">
-                        {{-- <h1>This is sidebar</h1> --}}
+
                         @if (in_array('projects', $modules))
                             <li>
                                 <div class="message-center">

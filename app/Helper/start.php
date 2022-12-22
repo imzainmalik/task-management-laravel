@@ -91,17 +91,17 @@ if (!function_exists('asset_url')) {
 
 }
 
-if (!function_exists('worksuite_plugins')) {
+if (!function_exists('LegenTask_plugins')) {
 
-    function worksuite_plugins()
+    function LegenTask_plugins()
     {
 
-        if (!session()->has('worksuite_plugins')) {
+        if (!session()->has('LegenTask_plugins')) {
             $plugins = \Nwidart\Modules\Facades\Module::allEnabled();
 
-            session(['worksuite_plugins' => array_keys($plugins)]);
+            session(['LegenTask_plugins' => array_keys($plugins)]);
         }
-        return session('worksuite_plugins');
+        return session('LegenTask_plugins');
     }
 
 }

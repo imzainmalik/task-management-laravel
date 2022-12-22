@@ -149,7 +149,7 @@ class AttendanceReportController extends AdminBaseController
 
             // Set the spreadsheet title, creator, and description
             $excel->setTitle(__('app.menu.attendanceReport'));
-            $excel->setCreator('Worksuite')->setCompany($this->companyName);
+            $excel->setCreator('LegenTask')->setCompany($this->companyName);
             $excel->setDescription(__('app.menu.attendanceReport'));
 
             // Build the spreadsheet, passing in the payments array

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\SuperAdmin;
 
 use App\EmployeeTeam;
 use App\Helper\Reply;
@@ -9,7 +9,7 @@ use App\Http\Requests\Team\StoreTeam;
 use App\Team;
 use App\User;
 
-class ManageTeamsController extends AdminBaseController
+class ManageTeamsController extends SuperAdminBaseController
 {
 
     public function __construct()
@@ -35,7 +35,7 @@ class ManageTeamsController extends AdminBaseController
     {
         $this->groups = Team::with('member', 'member.user')->get();
 
-        return view('admin.teams.index', $this->data);
+        return view('super-admin.teams.index', $this->data);
     }
 
     /**
@@ -45,7 +45,7 @@ class ManageTeamsController extends AdminBaseController
      */
     public function create()
     {
-        return view('admin.teams.create', $this->data);
+        return view('super-admin.teams.create', $this->data);
     }
 
     /**
@@ -60,7 +60,7 @@ class ManageTeamsController extends AdminBaseController
         $group->team_name = $request->team_name;
         $group->save();
 
-        return Reply::redirect(route('admin.teams.index'), 'Group created successfully.');
+        return Reply::redirect(route('super-admin.teams.index'), 'Group created successfully.');
     }
 
     /**
@@ -84,7 +84,7 @@ class ManageTeamsController extends AdminBaseController
     {
         $this->group = Team::with('member')->findOrFail($id);
 
-        return view('admin.teams.edit', $this->data);
+        return view('super-admin.teams.edit', $this->data);
     }
 
     /**
@@ -110,7 +110,7 @@ class ManageTeamsController extends AdminBaseController
         }
 
 
-        return Reply::redirect(route('admin.teams.index'), __('messages.groupUpdatedSuccessfully'));
+        return Reply::redirect(route('super-admin.teams.index'), __('messages.groupUpdatedSuccessfully'));
     }
 
     /**
@@ -133,7 +133,7 @@ class ManageTeamsController extends AdminBaseController
     public function quickCreate()
     {
         $this->teams = Team::all();
-        return view('admin.teams.quick-create', $this->data);
+        return view('super-admin.teams.quick-create', $this->data);
     }
 
     /**

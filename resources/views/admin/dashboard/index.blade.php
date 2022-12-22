@@ -225,7 +225,7 @@
             <div class="row dashboard-stats front-dashboard">
 
                 @if (in_array('clients', $modules) && in_array('total_clients', $activeWidgets))
-                    <div class="col-md-3 col-sm-6">
+                    <div class="col-md-6 col-sm-6">
                         <a href="{{ route('admin.clients.index') }}">
                             <div class="white-box">
                                 <div class="row">
@@ -245,7 +245,7 @@
                 @endif
 
                 @if (in_array('employees', $modules) && in_array('total_employees', $activeWidgets))
-                    <div class="col-md-3 col-sm-6">
+                    <div class="col-md-6 col-sm-6">
                         <a href="{{ route('admin.employees.index') }}">
                             <div class="white-box">
                                 <div class="row">
@@ -265,7 +265,7 @@
                 @endif
 
                 @if (in_array('projects', $modules) && in_array('total_projects', $activeWidgets))
-                    <div class="col-md-3 col-sm-6">
+                    <div class="col-md-6 col-sm-6">
                         <a href="{{ route('admin.projects.index') }}">
                             <div class="white-box">
                                 <div class="row">
@@ -284,7 +284,7 @@
                     </div>
                 @endif
 
-                @if (in_array('invoices', $modules) && in_array('total_unpaid_invoices', $activeWidgets))
+                {{-- @if (in_array('invoices', $modules) && in_array('total_unpaid_invoices', $activeWidgets))
                     <div class="col-md-3 col-sm-6">
                         <a href="{{ route('admin.all-invoices.index') }}">
                             <div class="white-box">
@@ -302,9 +302,9 @@
                             </div>
                         </a>
                     </div>
-                @endif
+                @endif --}}
                 @if (in_array('tasks', $modules) && in_array('total_pending_tasks', $activeWidgets))
-                    <div class="col-md-3 col-sm-6">
+                    <div class="col-md-6 col-sm-6">
                         <a href="{{ route('admin.all-tasks.index') }}">
                             <div class="white-box">
                                 <div class="row">
@@ -322,7 +322,7 @@
                         </a>
                     </div>
                 @endif
-                @if (in_array('timelogs', $modules) && in_array('total_hours_logged', $activeWidgets))
+                {{-- @if (in_array('timelogs', $modules) && in_array('total_hours_logged', $activeWidgets))
                     <div class="col-md-3 col-sm-6">
                         <a href="{{ route('admin.all-time-logs.index') }}">
                             <div class="white-box">
@@ -340,10 +340,10 @@
                             </div>
                         </a>
                     </div>
-                @endif
+                @endif --}}
 
                 @if (in_array('tasks', $modules) && in_array('completed_tasks', $activeWidgets))
-                    <div class="col-md-3 col-sm-6">
+                    <div class="col-md-6 col-sm-6">
                         <a href="{{ route('admin.all-tasks.index') }}">
                             <div class="white-box">
                                 <div class="row">
@@ -362,7 +362,7 @@
                     </div>
                 @endif
 
-                @if (in_array('attendance', $modules) && in_array('total_today_attendance', $activeWidgets))
+                {{-- @if (in_array('attendance', $modules) && in_array('total_today_attendance', $activeWidgets))
                     <div class="col-md-3 col-sm-6">
                         <a href="{{ route('admin.attendances.index') }}">
                             <div class="white-box">
@@ -389,9 +389,9 @@
                             </div>
                         </a>
                     </div>
-                @endif
+                @endif --}}
 
-                @if (in_array('tickets', $modules) && in_array('total_resolved_tickets', $activeWidgets))
+                {{-- @if (in_array('tickets', $modules) && in_array('total_resolved_tickets', $activeWidgets))
                     <div class="col-md-3 col-sm-6 front-dashboard dashboard-stats">
                         <a href="{{ route('admin.tickets.index') }}">
                             <div class="white-box">
@@ -409,9 +409,9 @@
                             </div>
                         </a>
                     </div>
-                @endif
+                @endif --}}
 
-                @if (in_array('tickets', $modules) && in_array('total_unresolved_tickets', $activeWidgets))
+                {{-- @if (in_array('tickets', $modules) && in_array('total_unresolved_tickets', $activeWidgets))
                     <div class="col-md-3 col-sm-6 front-dashboard dashboard-stats">
                         <a href="{{ route('admin.tickets.index') }}">
                             <div class="white-box">
@@ -429,7 +429,7 @@
                             </div>
                         </a>
                     </div>
-                @endif
+                @endif --}}
 
             </div>
             <!-- .row -->
@@ -456,7 +456,7 @@
                 @endif
             </div>
 
-            <div class="row">
+            {{-- <div class="row">
                 @if (in_array('leaves', $modules) && in_array('settings_leaves', $activeWidgets))
                     <div class="col-md-6">
                         <div class="panel panel-inverse">
@@ -507,7 +507,7 @@
                     </div>
                 @endif
 
-            </div>
+            </div> --}}
 
             <div class="row">
                 @if (in_array('tasks', $modules) && in_array('overdue_tasks', $activeWidgets))

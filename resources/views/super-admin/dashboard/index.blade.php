@@ -43,10 +43,10 @@
 
     <div class="white-box">
         <div class="row dashboard-stats front-dashboard">
-
+{{-- 
             @include('super-admin.dashboard.cron_job_message')
             @include('super-admin.dashboard.update_message')
-            @include('super-admin.dashboard.get_started')
+            @include('super-admin.dashboard.get_started') --}}
 
 
             <div class="col-md-3 col-sm-6">

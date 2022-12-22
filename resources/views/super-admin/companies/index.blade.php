@@ -6,15 +6,15 @@
         <div class="col-lg-6 col-md-6 col-sm-4 col-xs-12 bg-title-left">
             <h4 class="page-title"><i class="{{ $pageIcon }}"></i> {{ __($pageTitle) }}
                 <span class="text-info b-l p-l-10 m-l-5">{{ $totalCompanies }}</span> <span
-                class="font-12 text-muted m-l-5"> @lang('modules.dashboard.totalCompanies')</span>
+                class="font-12 text-muted m-l-5"> Total Leaders</span>
             </h4>
         </div>
         <!-- /.page title -->
         <!-- .breadcrumb -->
         <div class="col-lg-6 col-sm-8 col-md-6 col-xs-12 text-right bg-title-right">
-            <a href="javascript:;" id="addDefaultLanguage" class="btn btn-outline btn-info btn-sm">@lang('app.manage') @lang('app.defaultLanguage') </a>
+            {{-- <a href="javascript:;" id="addDefaultLanguage" class="btn btn-outline btn-info btn-sm">@lang('app.manage') @lang('app.defaultLanguage') </a> --}}
 
-            <a href="{{ route('super-admin.companies.create') }}" class="btn btn-outline btn-success btn-sm">@lang('app.add') @lang('app.company') <i class="fa fa-plus" aria-hidden="true"></i></a>
+            <a href="{{ route('super-admin.companies.create') }}" class="btn btn-outline btn-success btn-sm">@lang('app.add') Leader <i class="fa fa-plus" aria-hidden="true"></i></a>
 
             <ol class="breadcrumb">
                 <li><a href="{{ route('super-admin.dashboard') }}">@lang('app.menu.home')</a></li>
@@ -93,7 +93,7 @@
                             @else
                                 <th>@lang('app.email')</th>
                             @endif
-                            <th>@lang('app.package')</th>
+                            {{-- <th>@lang('app.package')</th> --}}
                             <th>@lang('app.status')</th>
                             <th>@lang('app.details')</th>
                             <th>@lang('app.lastActivity')</th>
@@ -262,7 +262,7 @@
                     @else
                         { data: 'company_email', name: 'company_email' },
                     @endif
-                    { data: 'package', name: 'package.name', 'sortable':false },
+                    // { data: 'package', name: 'package.name', 'sortable':false },
                     { data: 'status', name: 'status' },
                     { data: 'details', name: 'details', 'sortable':false },
                     { data: 'last_login', name: 'last_login'},

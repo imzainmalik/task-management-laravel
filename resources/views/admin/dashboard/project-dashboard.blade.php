@@ -2,7 +2,7 @@
 
 <div class="row dashboard-stats front-dashboard">
     @if(in_array('projects',$modules) && in_array('total_project',$activeWidgets))
-        <div class="col-md-3 col-sm-6">
+        <div class="col-md-6 col-sm-6">
             <a href="{{ route('admin.projects.index') }}">
                 <div class="white-box">
                     <div class="row">
@@ -18,7 +18,7 @@
             </a>
         </div>
     @endif
-    @if(in_array('timelogs',$modules) && in_array('total_hours_logged',$activeWidgets))
+    {{-- @if(in_array('timelogs',$modules) && in_array('total_hours_logged',$activeWidgets))
         <div class="col-md-3 col-sm-6">
             <a href="{{ route('admin.all-time-logs.index') }}">
                 <div class="white-box">
@@ -34,9 +34,9 @@
                 </div>
             </a>
         </div>
-    @endif
+    @endif --}}
     @if(in_array('projects',$modules) && in_array('total_overdue_project',$activeWidgets))
-        <div class="col-md-3 col-sm-6">
+        <div class="col-md-6 col-sm-6">
             <a href="{{ route('admin.projects.index') }}">
                 <div class="white-box">
                     <div class="row">

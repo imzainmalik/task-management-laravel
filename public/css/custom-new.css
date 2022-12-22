@@ -43,7 +43,7 @@ h5 {
 }
 
 .top-left-part {
-    background: #041731;
+    background: #000;
     padding-left: 20px
 }
 
@@ -80,7 +80,7 @@ h5 {
 }
 
 #side-menu>li:not(.user-pro)>a {
-    color: #a6b0cf;
+    color: #fff;
     font-weight: 500;
 }
 
@@ -176,7 +176,7 @@ h5 {
 
 #side-menu>li>a.active {
     border-color: transparent;
-    background: #09203a;
+    background: #000;
     color: #ffffff;
 }
 
@@ -1214,8 +1214,7 @@ a.mytooltip {
 
 .menu-copy-right {
     padding: 10px 20px;
-    background: #09203a;
-    color: #c5c5c5;
+    color: #fff;
     font-size: 14px;
     font-weight: 400;
 }
@@ -1245,7 +1244,6 @@ a.mytooltip {
     bottom: 0;
     left: 0;
     width: 220px;
-    background: #041831;
     border-top: 1px solid #2f3544;
     padding-top: 10px;
     z-index: 9999;

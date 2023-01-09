@@ -6,22 +6,21 @@ use App\AuthorizationInvoice;
 use App\Company;
 use App\Helper\Reply;
 use App\MollieInvoice;
-use App\Package;
 use App\PaypalInvoice;
 use App\PaystackInvoice;
+use App\Project;
 use App\RazorpayInvoice;
+use App\SmtpSetting;
 use App\StripeInvoice;
 use App\Traits\CurrencyExchange;
+use App\User;
 use Carbon\Carbon;
 use Froiden\Envato\Traits\AppBoot;
-use GuzzleHttp\Client;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\File;
-use App\SmtpSetting;
 
 class SuperAdminDashboardController extends SuperAdminBaseController
 {
-    use CurrencyExchange,AppBoot;
+    use CurrencyExchange, AppBoot;
 
     public function __construct()
     {
@@ -36,18 +35,27 @@ class SuperAdminDashboardController extends SuperAdminBaseController
      */
     public function index()
     {
-        // $this->changeAppUrlEnvironment();
-        $this->totalCompanies = Company::count();
-        $this->totalPackages = Package::where('default', '!=', 'trial')->count();
-        $this->activeCompanies = Company::where('status', '=', 'active')->count();
+        // total employees
+        $this->totalCompanies = User::whereHas('role', function ($q) {
+            $q->where('name', 'employee');
+        })->count();
 
-        $this->inactiveCompanies = Company::where('status', '=', 'inactive')->count();
+        // total earnings
+        $this->totalPackages = Project::where('status', 'finished')->where('deleted_at', null)->sum('project_budget');
 
-        $expiredCompanies = Company::with('package')->where('status', 'license_expired')->get();
-        $this->expiredCompanies = $expiredCompanies->count();
+        // total projects
+        $this->activeCompanies = Project::where('deleted_at', null)->count();
+
+        // total clients
+        $this->inactiveCompanies = User::whereHas('role', function ($q) {
+            $q->where('name', 'client');
+        })->count();
+
+        // total completed projects
+        $this->expiredCompanies = Project::where('status', 'finished')->where('deleted_at', null)->count();
 
         // Collect recent 5 licence expired companies detail
-        $this->recentExpired = $expiredCompanies->sortBy('updated_at')->take(5);
+        // $this->recentExpired = $expiredCompanies->sortBy('updated_at')->take(5);
 
         // Collect data for earning chart
         $months = [
@@ -140,12 +148,10 @@ class SuperAdminDashboardController extends SuperAdminBaseController
             ];
         }
 
-
         $this->chartData = json_encode($sumArray);
 
         // Collect data of recent registered 5 companies
         $this->recentRegisteredCompanies = Company::with('package')->take(5)->latest()->get();
-
 
         $stripe = DB::table('stripe_invoices')
             ->join('packages', 'packages.id', 'stripe_invoices.package_id')
@@ -223,13 +229,11 @@ class SuperAdminDashboardController extends SuperAdminBaseController
             $completedItem++;
         }
 
-
         if ($totalItems == $completedItem) {
             $progress['progress_completed'] = true;
         }
 
         $this->progress = $progress;
-
 
         return ($completedItem / $totalItems) * 100;
     }

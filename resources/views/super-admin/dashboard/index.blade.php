@@ -54,11 +54,11 @@
                     <div class="row">
                         <div class="col-xs-3">
                             <div>
-                                <span class="bg-info-gradient"><i class="icon-layers"></i></span>
+                                <span class="bg-info-gradient"><i class="fa fa-users"></i></span>
                             </div>
                         </div>
                         <div class="col-xs-9 text-right">
-                            <span class="widget-title"> @lang('modules.dashboard.totalCompanies')</span><br>
+                            <span class="widget-title"> @lang('modules.dashboard.totalEmployees')</span><br>
                             <span class="counter">{{ $totalCompanies }}</span>
                         </div>
                     </div>
@@ -70,11 +70,11 @@
                     <div class="row">
                         <div class="col-xs-3">
                             <div>
-                                <span class="bg-success-gradient"><i class="icon-layers"></i></span>
+                                <span class="bg-success-gradient"><i class="fa fa-list"></i></span>
                             </div>
                         </div>
                         <div class="col-xs-9 text-right">
-                            <span class="widget-title"> @lang('modules.dashboard.activeCompanies')</span><br>
+                            <span class="widget-title"> @lang('modules.dashboard.totalProjects')</span><br>
                             <span class="counter">{{ $activeCompanies }}</span>
                         </div>
                     </div>
@@ -86,11 +86,11 @@
                     <div class="row">
                         <div class="col-xs-3">
                             <div>
-                                <span class="bg-danger-gradient"><i class="icon-layers"></i></span>
+                                <span class="bg-danger-gradient"><i class="fa fa-check-square-o"></i></span>
                             </div>
                         </div>
                         <div class="col-xs-9 text-right">
-                            <span class="widget-title"> @lang('modules.dashboard.licenseExpired')</span><br>
+                            <span class="widget-title"> Total Completed Projects</span><br>
                             <span class="counter">{{ $expiredCompanies }}</span>
                         </div>
                     </div>
@@ -102,11 +102,11 @@
                     <div class="row">
                         <div class="col-xs-3">
                             <div>
-                                <span class="bg-warning-gradient"><i class="icon-layers"></i></span>
+                                <span class="bg-warning-gradient"><i class="fa fa-user-plus"></i></span>
                             </div>
                         </div>
                         <div class="col-xs-9 text-right">
-                            <span class="widget-title"> @lang('modules.dashboard.inactiveCompanies')</span><br>
+                            <span class="widget-title"> @lang('modules.dashboard.totalClients')</span><br>
                             <span class="counter">{{ $inactiveCompanies }}</span>
                         </div>
                     </div>
@@ -118,11 +118,11 @@
                     <div class="row">
                         <div class="col-xs-3">
                             <div>
-                                <span class="bg-inverse-gradient"><i class="icon-layers"></i></span>
+                                <span class="bg-inverse-gradient"><i class="fa fa-money"></i></span>
                             </div>
                         </div>
                         <div class="col-xs-9 text-right">
-                            <span class="widget-title"> @lang('app.total') @lang('app.menu.packages')</span><br>
+                            <span class="widget-title"> @lang('modules.dashboard.totalEarnings')</span><br>
                             <span class="counter">{{ $totalPackages }}</span>
                         </div>
                     </div>

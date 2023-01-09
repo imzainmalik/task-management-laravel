@@ -1287,7 +1287,7 @@ a.mytooltip {
 }
 
 .front-dashboard .col-xs-3 div span {
-    padding: 10px 13px;
+    padding: 10px 8px;
     border-radius: 50%;
     width: 38px;
     height: 38px;
@@ -1301,7 +1301,7 @@ a.mytooltip {
 
 .front-dashboard .col-xs-3 i {
     color: #ffffff;
-    font-size: 12px;
+    font-size: 20px;
 }
 
 .dashboard-stats .col-xs-9 .counter {

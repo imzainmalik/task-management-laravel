@@ -146,7 +146,7 @@
             </div>
         </div>
 
-        <div class="row">
+        {{-- <div class="row">
             <div class="col-md-12 col-xs-12">
                 <div class="white-box">
                     <h3 class="box-title">@lang('modules.superadmin.recentRegisteredCompanies')</h3>
@@ -255,7 +255,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
     </div>
 
 

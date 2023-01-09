@@ -294,9 +294,9 @@
         }
 
 
-        .top-left-part{
+        /* .top-left-part{
             background: var(--sidebar_color);
-        }
+        } */
 
         .notify .heartbit{
             border: 5px solid var(--sidebar_color);

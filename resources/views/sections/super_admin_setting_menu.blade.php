@@ -10,11 +10,11 @@
     <li
         class="tab @if(\Illuminate\Support\Facades\Route::currentRouteName() == 'super-admin.security-settings.index') active @endif">
         <a href="{{ route('super-admin.security-settings.index') }}">@lang('app.security')</a></li>
-    <li
+    {{-- <li
         class="tab @if(\Illuminate\Support\Facades\Route::currentRouteName() == 'super-admin.push-notification-settings.index') active @endif">
         <a href="{{ route('super-admin.push-notification-settings.index') }}">@lang('app.menu.pushNotifications')
             @lang('app.menu.settings')</a>
-    </li>
+    </li> --}}
     <li
         class="tab @if(\Illuminate\Support\Facades\Route::currentRouteName() == 'super-admin.language-settings.index') active @endif">
         <a href="{{ route('super-admin.language-settings.index') }}">@lang('app.language')

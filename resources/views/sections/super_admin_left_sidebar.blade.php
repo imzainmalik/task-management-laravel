@@ -111,7 +111,7 @@
             {{-- <li><a href="{{ route('super-admin.packages.index') }}" class="waves-effect"><i class="icon-calculator fa-fw"></i> <span class="hide-menu">@lang('app.menu.packages') </span></a> </li> --}}
             <li><a href="{{ route('super-admin.teams.index') }}" class="waves-effect"><i class="icon-user fa-fw"></i><span class="hide-menu">Departments</span></a></li>
 
-            <li><a href="{{ route('super-admin.companies.index') }}" class="waves-effect"><i class="icon-layers fa-fw"></i> <span class="hide-menu">Team Leaders </span></a> </li>
+            <li><a href="{{ route('super-admin.companies.index') }}" class="waves-effect"><i class="fa fa-users"></i> <span class="hide-menu">Team Leaders </span></a> </li>
             <li><a href="{{ route('super-admin.invoices.index') }}" class="waves-effect"><i class="icon-printer fa-fw"></i> <span class="hide-menu">@lang('app.menu.invoices') </span></a> </li>
             {{-- <li><a href="{{ route('super-admin.faq.index') }}" class="waves-effect"><i class="icon-docs fa-fw"></i> <span class="hide-menu">@lang('app.menu.faq') </span></a> </li> --}}
             <li><a href="{{ route('super-admin.super-admin.index') }}" class="waves-effect"><i class="fa fa-user fa-fw"></i> <span class="hide-menu">@lang('app.superAdmin') </span></a> </li>
@@ -126,7 +126,7 @@
             {{--                        --}}{{-- <li><a href="#" class="waves-effect" id="rtl"><i class="ti-settings fa-fw"></i> <span class="hide-menu"> RTL</span></a></li> --}}
             {{--                    </ul>--}}
             {{--                </li>--}}
-            <!-- <li><a href="#" class="waves-effect" id="rtl"><i class="ti-settings fa-fw"></i> <span class="hide-menu"> RTL</span></a></li> --> --}}
+            <!-- <li><a href="#" class="waves-effect" id="rtl"><i class="ti-settings fa-fw"></i> <span class="hide-menu"> RTL</span></a></li> --> 
 
         </ul>
 

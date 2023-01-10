@@ -5,7 +5,7 @@
         <!-- .page title -->
         <div class="col-lg-6 col-md-4 col-sm-4 col-xs-12 bg-title-left">
             <h4 class="page-title"><i class="{{ $pageIcon }}"></i> {{ __($pageTitle) }}
-                <span class="text-info b-l p-l-10 m-l-5">{{ dd($totalSuperAdmin) }}</span> <span
+                <span class="text-info b-l p-l-10 m-l-5">{{ $totalSuperAdmin }}</span> <span
                 class="font-12 text-muted m-l-5"> @lang('app.total') @lang('app.superAdmin')</span>
             </h4>
         </div>

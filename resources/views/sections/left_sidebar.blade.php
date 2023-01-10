@@ -343,13 +343,13 @@
             </li>
             @endrole --}}
 
-            @foreach ($worksuitePlugins as $item)
+            {{-- @foreach ($worksuitePlugins as $item)
                 @if (in_array(strtolower($item), $modules) || in_array($item, $modules))
                     @if (View::exists(strtolower($item) . '::sections.left_sidebar'))
                         @include(strtolower($item) . '::sections.left_sidebar')
                     @endif
                 @endif
-            @endforeach
+            @endforeach --}}
             {{-- <li><a href="{{ route('admin.employee-faq.index') }}" class="waves-effect
                     {{ request()->is('admin/employee-faq*') ? 'active' : '' }}"><i class="icon-docs fa-fw"></i> <span class="hide-menu"> @lang('app.faq') <span class="fa arrow"></span> </span></a>
                     <ul class="nav nav-second-level {{ request()->is('admin/employee-faq*') ? 'collapse in' : '' }}">

@@ -23,27 +23,27 @@
     <li
         class="tab @if(\Illuminate\Support\Facades\Route::currentRouteName() == 'super-admin.currency.index') active @endif">
         <a href="{{ route('super-admin.currency.index') }}">@lang('app.menu.currencySettings')</a></li>
-    <li
+    {{-- <li
         class="tab @if(\Illuminate\Support\Facades\Route::currentRouteName() == 'super-admin.payment-settings.index') active @endif">
-        <a href="{{ route('super-admin.payment-settings.index') }}">@lang('app.menu.paymentGatewayCredential')</a></li>
-    <li
+        <a href="{{ route('super-admin.payment-settings.index') }}">@lang('app.menu.paymentGatewayCredential')</a></li> --}}
+    {{-- <li
         class="tab @if(\Illuminate\Support\Facades\Route::currentRouteName() == 'super-admin.package-settings.index') active @endif">
         <a href="{{ route('super-admin.package-settings.index') }}">@lang('app.freeTrial')
             @lang('app.menu.settings')
-            {{-- <i class="fa fa-check text-right pull-right text-success"></i> --}}
+            <i class="fa fa-check text-right pull-right text-success"></i>
         </a>
-        </li>
-    <li
+        </li> --}}
+    {{-- <li
         class="tab @if(\Illuminate\Support\Facades\Route::currentRouteName() == 'super-admin.custom-modules.index' || \Illuminate\Support\Facades\Route::currentRouteName() == 'super-admin.custom-modules.create') active @endif">
-        <a href="{{ route('super-admin.custom-modules.index') }}">@lang('app.menu.customModule')</a></li>
+        <a href="{{ route('super-admin.custom-modules.index') }}">@lang('app.menu.customModule')</a></li> --}}
 
     <li class="tab @if(\Illuminate\Support\Facades\Route::currentRouteName() == 'super-admin.custom-fields.index') active @endif">
         <a href="{{ route('super-admin.custom-fields.index') }}">@lang('app.menu.customFields')</a></li>
 
-    <li
+    {{-- <li
         class="tab @if(\Illuminate\Support\Facades\Route::currentRouteName() == 'super-admin.storage-settings.index') active @endif">
         <a href="{{ route('super-admin.storage-settings.index') }}">@lang('app.menu.storageSettings')</a>
-    </li>
+    </li> --}}
     <li
         class="tab @if(\Illuminate\Support\Facades\Route::currentRouteName() == 'super-admin.theme-settings.index') active @endif">
         <a href="{{ route('super-admin.theme-settings.index') }}">@lang('app.menu.themeSettings')</a>
@@ -56,10 +56,10 @@
         class="tab @if(\Illuminate\Support\Facades\Route::currentRouteName() == 'super-admin.social-auth-settings.index') active @endif">
         <a href="{{ route('super-admin.social-auth-settings.index') }}">@lang('app.menu.socialLogin')</a>
     </li>
-    <li
+    {{-- <li
         class="tab @if(\Illuminate\Support\Facades\Route::currentRouteName() == 'super-admin.google-calendar-settings.index') active @endif">
         <a href="{{ route('super-admin.google-calendar-settings.index') }}">@lang('app.googleCalendar')</a>
-    </li>
+    </li> --}}
 
     @foreach ($LegenTaskPlugins as $item)
         @if(View::exists(strtolower($item).'::sections.super_admin_setting_menu'))
@@ -67,12 +67,12 @@
         @endif
     @endforeach
 
-    @if($global->system_update == 1)
+    {{-- @if($global->system_update == 1)
     <li
         class="tab @if(\Illuminate\Support\Facades\Route::currentRouteName() == 'super-admin.update-settings.index') active @endif">
         <a href="{{ route('super-admin.update-settings.index') }}">@lang('app.menu.updates')</a>
     </li>
-    @endif
+    @endif --}}
 </ul>
 
 <script src="{{ asset('plugins/bower_components/jquery/dist/jquery.min.js') }}"></script>

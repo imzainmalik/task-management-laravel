@@ -30,7 +30,9 @@ class SuperAdminController extends SuperAdminBaseController
      */
     public function index()
     {
+        
         $this->superAdmin = User::allSuperAdmin();
+        // dd($this->superAdmin);
         $this->totalSuperAdmin = count($this->superAdmin);
 
         return view('super-admin.super-admin.index', $this->data);

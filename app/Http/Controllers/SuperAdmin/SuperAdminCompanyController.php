@@ -54,8 +54,10 @@ class SuperAdminCompanyController extends SuperAdminBaseController
      */
     public function index()
     {
+        // dd('dd');
         $this->totalCompanies = Company::count();
         $this->packages = Package::all();
+        
         return view('super-admin.companies.index', $this->data);
     }
 
@@ -138,6 +140,7 @@ class SuperAdminCompanyController extends SuperAdminBaseController
      */
     public function show($id)
     {
+        // dd('dd');
         $this->companyDetails = Company::with('package', 'file_storage', 'employees')->findOrFail($id)->withCustomFields();
         $this->fields = $this->companyDetails->getCustomFieldGroupsWithFields()->fields;
         $view = view('super-admin.companies.show', $this->data)->render();

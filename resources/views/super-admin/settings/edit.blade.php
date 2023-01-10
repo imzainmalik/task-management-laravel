@@ -27,7 +27,7 @@
 @section('content')
 
 <div class="row">
-    @if(!$global->hide_cron_message)
+    {{-- @if(!$global->hide_cron_message)
     <div class="col-xs-12">
         <div class="alert alert-info ">
             <h5 class="text-white">Set following cron command on your server (Ignore if already done)</h5>
@@ -40,7 +40,7 @@
             @endphp
         </div>
     </div>
-    @endif
+    @endif --}}
 
     @if($global->show_public_message)
     <div class="col-xs-12">

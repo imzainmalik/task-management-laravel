@@ -33,8 +33,9 @@ class ManageTeamsController extends SuperAdminBaseController
      */
     public function index()
     {
+        // dd('dd');
         $this->groups = Team::with('member', 'member.user')->get();
-
+        // dd($this->groups);
         return view('super-admin.teams.index', $this->data);
     }
 

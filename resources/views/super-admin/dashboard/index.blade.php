@@ -123,7 +123,8 @@
                         </div>
                         <div class="col-xs-9 text-right">
                             <span class="widget-title"> @lang('modules.dashboard.totalEarnings')</span><br>
-                            <span class="currency-sign">$ </span><span class="counter"> {{ $totalPackages }}</span>
+                            
+                            <span class="currency-sign">{{$currency->currency_symbol.' '}}</span><span class="counter"> {{ $totalPackages }}</span>
                         </div>
                     </div>
                 </div>

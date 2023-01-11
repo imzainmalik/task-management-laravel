@@ -4,6 +4,7 @@ namespace App\Http\Controllers\SuperAdmin;
 
 use App\AuthorizationInvoice;
 use App\Company;
+use App\Currency;
 use App\Helper\Reply;
 use App\MollieInvoice;
 use App\PaypalInvoice;
@@ -50,6 +51,8 @@ class SuperAdminDashboardController extends SuperAdminBaseController
         $this->inactiveCompanies = User::whereHas('role', function ($q) {
             $q->where('name', 'client');
         })->count();
+
+        $this->currency = Currency::where('currency_code', 'USD')->first();
 
         // total completed projects
         $this->expiredCompanies = Project::where('status', 'finished')->where('deleted_at', null)->count();
@@ -201,6 +204,7 @@ class SuperAdminDashboardController extends SuperAdminBaseController
 
         $this->progressPercent = $this->progressbarPercent();
         $this->isCheckScript();
+        // dd($this->data);
         return view('super-admin.dashboard.index', $this->data);
     }
 

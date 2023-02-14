@@ -9,6 +9,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
+
+    
     <link rel="icon" type="image/png" sizes="16x16" href="{{ $global->favicon_url }}">
     {{--<link rel="manifest" href="{{ asset('favicon/manifest.json') }}">--}}
     <meta name="msapplication-TileColor" content="#ffffff">
